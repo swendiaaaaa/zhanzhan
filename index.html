@@ -6,166 +6,158 @@
   <title>蘸蘸：一只从三楼监狱开始的猫</title>
   <style>
     :root {
-      color-scheme: light;
-      --paper: #f7f4ee;
-      --ink: #1d1c19;
-      --muted: #706a61;
-      --line: #ded7cc;
-      --accent: #2f6f73;
-      --accent-dark: #1f5558;
+      --bg: #f8f5ef;
+      --paper: #fffdfa;
+      --ink: #191816;
+      --muted: #716b63;
+      --line: #ddd5c9;
+      --accent: #28666a;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--bg);
       color: var(--ink);
       font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
-      line-height: 1.6;
+      font-size: 21px;
+      line-height: 1.95;
+      letter-spacing: 0;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 5;
+      z-index: 4;
+      background: rgba(248, 245, 239, 0.96);
       border-bottom: 1px solid var(--line);
-      background: rgba(247, 244, 238, 0.94);
       backdrop-filter: blur(10px);
     }
 
     .bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      width: min(1120px, calc(100% - 28px));
+      width: min(100% - 28px, 760px);
       margin: 0 auto;
-      padding: 12px 0;
+      padding: 10px 0;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(18px, 2.4vw, 28px);
+      font-size: 21px;
+      line-height: 1.35;
       font-weight: 700;
       letter-spacing: 0;
     }
 
     .meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
       color: var(--muted);
       font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .meta a {
-      color: var(--accent-dark);
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
+      line-height: 1.6;
     }
 
     main {
-      width: min(1120px, calc(100% - 24px));
+      width: min(100%, 820px);
       margin: 0 auto;
-      padding: 24px 0 56px;
+      padding: 18px 0 56px;
+    }
+
+    .intro,
+    .text-page {
+      width: min(100% - 28px, 760px);
+      margin: 0 auto;
     }
 
     .intro {
-      display: grid;
-      gap: 8px;
-      margin: 0 0 22px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
     }
 
-    .intro p {
-      margin: 0;
+    .text-page,
+    .image-page {
+      margin-bottom: 34px;
+      scroll-margin-top: 74px;
     }
 
-    .pages {
-      display: grid;
-      gap: 22px;
-    }
-
-    .page {
-      display: grid;
-      gap: 8px;
-      scroll-margin-top: 76px;
-    }
-
-    .page-number {
+    .page-no {
       color: var(--muted);
       font-size: 13px;
+      line-height: 1.4;
       text-align: center;
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: 30px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 18px;
+      font-size: 25px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 18px;
+      text-align: left;
+    }
+
+    .caption {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .rule {
+      width: 42px;
+      height: 1px;
+      margin: 30px 0;
+      background: var(--muted);
     }
 
     img {
       display: block;
-      width: min(100%, 920px);
+      width: 100%;
       height: auto;
-      margin: 0 auto;
-      border: 1px solid var(--line);
       background: white;
-      box-shadow: 0 14px 40px rgba(52, 44, 33, 0.12);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .top-link {
+    .top {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 6;
+      right: 14px;
+      bottom: 14px;
+      z-index: 5;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       background: var(--accent);
       color: white;
       text-decoration: none;
-      box-shadow: 0 10px 28px rgba(31, 85, 88, 0.28);
       font-size: 20px;
+      box-shadow: 0 8px 22px rgba(40, 102, 106, 0.24);
     }
 
-    @media (max-width: 720px) {
-      .bar {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .meta {
-        justify-content: flex-start;
-        font-size: 13px;
-      }
-
-      main {
-        width: min(100% - 12px, 1120px);
-        padding-top: 14px;
-      }
-
-      .intro {
-        padding: 0 4px;
-      }
-
-      .pages {
-        gap: 14px;
-      }
-
+    @media (min-width: 780px) {
+      body { font-size: 22px; }
+      h1 { font-size: 24px; }
+      h2 { font-size: 36px; }
+      h3 { font-size: 28px; }
       img {
-        border-left: 0;
-        border-right: 0;
-        box-shadow: 0 8px 22px rgba(52, 44, 33, 0.12);
+        width: min(100%, 760px);
+        margin: 0 auto;
+        border: 1px solid var(--line);
       }
     }
   </style>
@@ -174,1020 +166,2016 @@
   <header>
     <div class="bar">
       <h1>蘸蘸：一只从三楼监狱开始的猫</h1>
-      <div class="meta">
-        <span>共 200 页</span>
-        <a href="#page-001">开始阅读</a>
-      </div>
+      <div class="meta">手机大字阅读版 · 文字页 99 页 · 图片页 101 页</div>
     </div>
   </header>
   <main>
     <section class="intro" aria-label="说明">
-      <p>这是由原 PDF 转换的网页分享版，正文与插图均按原页保留，并已优化手机阅读大小。</p>
+      正文已调整为手机默认可读的大字号，插图按原 PDF 保留。
     </section>
-    <section class="pages" aria-label="正文">
-      
-            <article class="page" id="page-001" aria-label="第 1 页">
-              <div class="page-number">第 1 / 200 页</div>
-              <img src="pages/page-001.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 1 页" loading="eager" decoding="async" width="943" height="1491">
-            </article>
-            
-            <article class="page" id="page-002" aria-label="第 2 页">
-              <div class="page-number">第 2 / 200 页</div>
-              <img src="pages/page-002.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 2 页" loading="eager" decoding="async" width="900" height="1440">
-            </article>
-            
-            <article class="page" id="page-003" aria-label="第 3 页">
-              <div class="page-number">第 3 / 200 页</div>
-              <img src="pages/page-003.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 3 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-004" aria-label="第 4 页">
-              <div class="page-number">第 4 / 200 页</div>
-              <img src="pages/page-004.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 4 页" loading="lazy" decoding="async" width="1040" height="1363">
-            </article>
-            
-            <article class="page" id="page-005" aria-label="第 5 页">
-              <div class="page-number">第 5 / 200 页</div>
-              <img src="pages/page-005.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 5 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-006" aria-label="第 6 页">
-              <div class="page-number">第 6 / 200 页</div>
-              <img src="pages/page-006.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 6 页" loading="lazy" decoding="async" width="1040" height="1361">
-            </article>
-            
-            <article class="page" id="page-007" aria-label="第 7 页">
-              <div class="page-number">第 7 / 200 页</div>
-              <img src="pages/page-007.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 7 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-008" aria-label="第 8 页">
-              <div class="page-number">第 8 / 200 页</div>
-              <img src="pages/page-008.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 8 页" loading="lazy" decoding="async" width="1040" height="1359">
-            </article>
-            
-            <article class="page" id="page-009" aria-label="第 9 页">
-              <div class="page-number">第 9 / 200 页</div>
-              <img src="pages/page-009.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 9 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-010" aria-label="第 10 页">
-              <div class="page-number">第 10 / 200 页</div>
-              <img src="pages/page-010.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 10 页" loading="lazy" decoding="async" width="1043" height="1360">
-            </article>
-            
-            <article class="page" id="page-011" aria-label="第 11 页">
-              <div class="page-number">第 11 / 200 页</div>
-              <img src="pages/page-011.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 11 页" loading="lazy" decoding="async" width="1043" height="1359">
-            </article>
-            
-            <article class="page" id="page-012" aria-label="第 12 页">
-              <div class="page-number">第 12 / 200 页</div>
-              <img src="pages/page-012.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 12 页" loading="lazy" decoding="async" width="1041" height="1358">
-            </article>
-            
-            <article class="page" id="page-013" aria-label="第 13 页">
-              <div class="page-number">第 13 / 200 页</div>
-              <img src="pages/page-013.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 13 页" loading="lazy" decoding="async" width="1041" height="1360">
-            </article>
-            
-            <article class="page" id="page-014" aria-label="第 14 页">
-              <div class="page-number">第 14 / 200 页</div>
-              <img src="pages/page-014.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 14 页" loading="lazy" decoding="async" width="1042" height="1359">
-            </article>
-            
-            <article class="page" id="page-015" aria-label="第 15 页">
-              <div class="page-number">第 15 / 200 页</div>
-              <img src="pages/page-015.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 15 页" loading="lazy" decoding="async" width="1042" height="1358">
-            </article>
-            
-            <article class="page" id="page-016" aria-label="第 16 页">
-              <div class="page-number">第 16 / 200 页</div>
-              <img src="pages/page-016.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 16 页" loading="lazy" decoding="async" width="1041" height="1488">
-            </article>
-            
-            <article class="page" id="page-017" aria-label="第 17 页">
-              <div class="page-number">第 17 / 200 页</div>
-              <img src="pages/page-017.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 17 页" loading="lazy" decoding="async" width="959" height="1524">
-            </article>
-            
-            <article class="page" id="page-018" aria-label="第 18 页">
-              <div class="page-number">第 18 / 200 页</div>
-              <img src="pages/page-018.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 18 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-019" aria-label="第 19 页">
-              <div class="page-number">第 19 / 200 页</div>
-              <img src="pages/page-019.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 19 页" loading="lazy" decoding="async" width="1040" height="1359">
-            </article>
-            
-            <article class="page" id="page-020" aria-label="第 20 页">
-              <div class="page-number">第 20 / 200 页</div>
-              <img src="pages/page-020.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 20 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-021" aria-label="第 21 页">
-              <div class="page-number">第 21 / 200 页</div>
-              <img src="pages/page-021.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 21 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-022" aria-label="第 22 页">
-              <div class="page-number">第 22 / 200 页</div>
-              <img src="pages/page-022.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 22 页" loading="lazy" decoding="async" width="1043" height="1088">
-            </article>
-            
-            <article class="page" id="page-023" aria-label="第 23 页">
-              <div class="page-number">第 23 / 200 页</div>
-              <img src="pages/page-023.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 23 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-024" aria-label="第 24 页">
-              <div class="page-number">第 24 / 200 页</div>
-              <img src="pages/page-024.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 24 页" loading="lazy" decoding="async" width="1040" height="1428">
-            </article>
-            
-            <article class="page" id="page-025" aria-label="第 25 页">
-              <div class="page-number">第 25 / 200 页</div>
-              <img src="pages/page-025.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 25 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-026" aria-label="第 26 页">
-              <div class="page-number">第 26 / 200 页</div>
-              <img src="pages/page-026.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 26 页" loading="lazy" decoding="async" width="1040" height="1425">
-            </article>
-            
-            <article class="page" id="page-027" aria-label="第 27 页">
-              <div class="page-number">第 27 / 200 页</div>
-              <img src="pages/page-027.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 27 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-028" aria-label="第 28 页">
-              <div class="page-number">第 28 / 200 页</div>
-              <img src="pages/page-028.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 28 页" loading="lazy" decoding="async" width="1042" height="1489">
-            </article>
-            
-            <article class="page" id="page-029" aria-label="第 29 页">
-              <div class="page-number">第 29 / 200 页</div>
-              <img src="pages/page-029.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 29 页" loading="lazy" decoding="async" width="1019" height="1216">
-            </article>
-            
-            <article class="page" id="page-030" aria-label="第 30 页">
-              <div class="page-number">第 30 / 200 页</div>
-              <img src="pages/page-030.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 30 页" loading="lazy" decoding="async" width="1042" height="1492">
-            </article>
-            
-            <article class="page" id="page-031" aria-label="第 31 页">
-              <div class="page-number">第 31 / 200 页</div>
-              <img src="pages/page-031.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 31 页" loading="lazy" decoding="async" width="900" height="1136">
-            </article>
-            
-            <article class="page" id="page-032" aria-label="第 32 页">
-              <div class="page-number">第 32 / 200 页</div>
-              <img src="pages/page-032.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 32 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-033" aria-label="第 33 页">
-              <div class="page-number">第 33 / 200 页</div>
-              <img src="pages/page-033.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 33 页" loading="lazy" decoding="async" width="1040" height="1472">
-            </article>
-            
-            <article class="page" id="page-034" aria-label="第 34 页">
-              <div class="page-number">第 34 / 200 页</div>
-              <img src="pages/page-034.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 34 页" loading="lazy" decoding="async" width="1040" height="1270">
-            </article>
-            
-            <article class="page" id="page-035" aria-label="第 35 页">
-              <div class="page-number">第 35 / 200 页</div>
-              <img src="pages/page-035.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 35 页" loading="lazy" decoding="async" width="1040" height="1524">
-            </article>
-            
-            <article class="page" id="page-036" aria-label="第 36 页">
-              <div class="page-number">第 36 / 200 页</div>
-              <img src="pages/page-036.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 36 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-037" aria-label="第 37 页">
-              <div class="page-number">第 37 / 200 页</div>
-              <img src="pages/page-037.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 37 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-038" aria-label="第 38 页">
-              <div class="page-number">第 38 / 200 页</div>
-              <img src="pages/page-038.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 38 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-039" aria-label="第 39 页">
-              <div class="page-number">第 39 / 200 页</div>
-              <img src="pages/page-039.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 39 页" loading="lazy" decoding="async" width="1042" height="1362">
-            </article>
-            
-            <article class="page" id="page-040" aria-label="第 40 页">
-              <div class="page-number">第 40 / 200 页</div>
-              <img src="pages/page-040.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 40 页" loading="lazy" decoding="async" width="1042" height="1524">
-            </article>
-            
-            <article class="page" id="page-041" aria-label="第 41 页">
-              <div class="page-number">第 41 / 200 页</div>
-              <img src="pages/page-041.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 41 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-042" aria-label="第 42 页">
-              <div class="page-number">第 42 / 200 页</div>
-              <img src="pages/page-042.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 42 页" loading="lazy" decoding="async" width="1040" height="1511">
-            </article>
-            
-            <article class="page" id="page-043" aria-label="第 43 页">
-              <div class="page-number">第 43 / 200 页</div>
-              <img src="pages/page-043.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 43 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-044" aria-label="第 44 页">
-              <div class="page-number">第 44 / 200 页</div>
-              <img src="pages/page-044.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 44 页" loading="lazy" decoding="async" width="1043" height="1358">
-            </article>
-            
-            <article class="page" id="page-045" aria-label="第 45 页">
-              <div class="page-number">第 45 / 200 页</div>
-              <img src="pages/page-045.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 45 页" loading="lazy" decoding="async" width="1040" height="1358">
-            </article>
-            
-            <article class="page" id="page-046" aria-label="第 46 页">
-              <div class="page-number">第 46 / 200 页</div>
-              <img src="pages/page-046.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 46 页" loading="lazy" decoding="async" width="1040" height="1489">
-            </article>
-            
-            <article class="page" id="page-047" aria-label="第 47 页">
-              <div class="page-number">第 47 / 200 页</div>
-              <img src="pages/page-047.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 47 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-048" aria-label="第 48 页">
-              <div class="page-number">第 48 / 200 页</div>
-              <img src="pages/page-048.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 48 页" loading="lazy" decoding="async" width="1042" height="917">
-            </article>
-            
-            <article class="page" id="page-049" aria-label="第 49 页">
-              <div class="page-number">第 49 / 200 页</div>
-              <img src="pages/page-049.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 49 页" loading="lazy" decoding="async" width="1042" height="1360">
-            </article>
-            
-            <article class="page" id="page-050" aria-label="第 50 页">
-              <div class="page-number">第 50 / 200 页</div>
-              <img src="pages/page-050.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 50 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-051" aria-label="第 51 页">
-              <div class="page-number">第 51 / 200 页</div>
-              <img src="pages/page-051.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 51 页" loading="lazy" decoding="async" width="1042" height="1520">
-            </article>
-            
-            <article class="page" id="page-052" aria-label="第 52 页">
-              <div class="page-number">第 52 / 200 页</div>
-              <img src="pages/page-052.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 52 页" loading="lazy" decoding="async" width="900" height="1121">
-            </article>
-            
-            <article class="page" id="page-053" aria-label="第 53 页">
-              <div class="page-number">第 53 / 200 页</div>
-              <img src="pages/page-053.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 53 页" loading="lazy" decoding="async" width="900" height="1531">
-            </article>
-            
-            <article class="page" id="page-054" aria-label="第 54 页">
-              <div class="page-number">第 54 / 200 页</div>
-              <img src="pages/page-054.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 54 页" loading="lazy" decoding="async" width="1042" height="1360">
-            </article>
-            
-            <article class="page" id="page-055" aria-label="第 55 页">
-              <div class="page-number">第 55 / 200 页</div>
-              <img src="pages/page-055.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 55 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-056" aria-label="第 56 页">
-              <div class="page-number">第 56 / 200 页</div>
-              <img src="pages/page-056.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 56 页" loading="lazy" decoding="async" width="1041" height="1360">
-            </article>
-            
-            <article class="page" id="page-057" aria-label="第 57 页">
-              <div class="page-number">第 57 / 200 页</div>
-              <img src="pages/page-057.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 57 页" loading="lazy" decoding="async" width="1042" height="1360">
-            </article>
-            
-            <article class="page" id="page-058" aria-label="第 58 页">
-              <div class="page-number">第 58 / 200 页</div>
-              <img src="pages/page-058.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 58 页" loading="lazy" decoding="async" width="1040" height="1359">
-            </article>
-            
-            <article class="page" id="page-059" aria-label="第 59 页">
-              <div class="page-number">第 59 / 200 页</div>
-              <img src="pages/page-059.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 59 页" loading="lazy" decoding="async" width="1040" height="1487">
-            </article>
-            
-            <article class="page" id="page-060" aria-label="第 60 页">
-              <div class="page-number">第 60 / 200 页</div>
-              <img src="pages/page-060.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 60 页" loading="lazy" decoding="async" width="900" height="1504">
-            </article>
-            
-            <article class="page" id="page-061" aria-label="第 61 页">
-              <div class="page-number">第 61 / 200 页</div>
-              <img src="pages/page-061.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 61 页" loading="lazy" decoding="async" width="900" height="1488">
-            </article>
-            
-            <article class="page" id="page-062" aria-label="第 62 页">
-              <div class="page-number">第 62 / 200 页</div>
-              <img src="pages/page-062.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 62 页" loading="lazy" decoding="async" width="900" height="1440">
-            </article>
-            
-            <article class="page" id="page-063" aria-label="第 63 页">
-              <div class="page-number">第 63 / 200 页</div>
-              <img src="pages/page-063.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 63 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-064" aria-label="第 64 页">
-              <div class="page-number">第 64 / 200 页</div>
-              <img src="pages/page-064.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 64 页" loading="lazy" decoding="async" width="1043" height="1362">
-            </article>
-            
-            <article class="page" id="page-065" aria-label="第 65 页">
-              <div class="page-number">第 65 / 200 页</div>
-              <img src="pages/page-065.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 65 页" loading="lazy" decoding="async" width="1040" height="1417">
-            </article>
-            
-            <article class="page" id="page-066" aria-label="第 66 页">
-              <div class="page-number">第 66 / 200 页</div>
-              <img src="pages/page-066.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 66 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-067" aria-label="第 67 页">
-              <div class="page-number">第 67 / 200 页</div>
-              <img src="pages/page-067.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 67 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-068" aria-label="第 68 页">
-              <div class="page-number">第 68 / 200 页</div>
-              <img src="pages/page-068.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 68 页" loading="lazy" decoding="async" width="1042" height="1362">
-            </article>
-            
-            <article class="page" id="page-069" aria-label="第 69 页">
-              <div class="page-number">第 69 / 200 页</div>
-              <img src="pages/page-069.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 69 页" loading="lazy" decoding="async" width="1042" height="1419">
-            </article>
-            
-            <article class="page" id="page-070" aria-label="第 70 页">
-              <div class="page-number">第 70 / 200 页</div>
-              <img src="pages/page-070.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 70 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-071" aria-label="第 71 页">
-              <div class="page-number">第 71 / 200 页</div>
-              <img src="pages/page-071.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 71 页" loading="lazy" decoding="async" width="1043" height="1361">
-            </article>
-            
-            <article class="page" id="page-072" aria-label="第 72 页">
-              <div class="page-number">第 72 / 200 页</div>
-              <img src="pages/page-072.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 72 页" loading="lazy" decoding="async" width="1042" height="1429">
-            </article>
-            
-            <article class="page" id="page-073" aria-label="第 73 页">
-              <div class="page-number">第 73 / 200 页</div>
-              <img src="pages/page-073.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 73 页" loading="lazy" decoding="async" width="1040" height="1362">
-            </article>
-            
-            <article class="page" id="page-074" aria-label="第 74 页">
-              <div class="page-number">第 74 / 200 页</div>
-              <img src="pages/page-074.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 74 页" loading="lazy" decoding="async" width="1040" height="1429">
-            </article>
-            
-            <article class="page" id="page-075" aria-label="第 75 页">
-              <div class="page-number">第 75 / 200 页</div>
-              <img src="pages/page-075.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 75 页" loading="lazy" decoding="async" width="900" height="1532">
-            </article>
-            
-            <article class="page" id="page-076" aria-label="第 76 页">
-              <div class="page-number">第 76 / 200 页</div>
-              <img src="pages/page-076.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 76 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-077" aria-label="第 77 页">
-              <div class="page-number">第 77 / 200 页</div>
-              <img src="pages/page-077.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 77 页" loading="lazy" decoding="async" width="900" height="1531">
-            </article>
-            
-            <article class="page" id="page-078" aria-label="第 78 页">
-              <div class="page-number">第 78 / 200 页</div>
-              <img src="pages/page-078.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 78 页" loading="lazy" decoding="async" width="1191" height="1684">
-            </article>
-            
-            <article class="page" id="page-079" aria-label="第 79 页">
-              <div class="page-number">第 79 / 200 页</div>
-              <img src="pages/page-079.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 79 页" loading="lazy" decoding="async" width="900" height="1469">
-            </article>
-            
-            <article class="page" id="page-080" aria-label="第 80 页">
-              <div class="page-number">第 80 / 200 页</div>
-              <img src="pages/page-080.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 80 页" loading="lazy" decoding="async" width="900" height="1470">
-            </article>
-            
-            <article class="page" id="page-081" aria-label="第 81 页">
-              <div class="page-number">第 81 / 200 页</div>
-              <img src="pages/page-081.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 81 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-082" aria-label="第 82 页">
-              <div class="page-number">第 82 / 200 页</div>
-              <img src="pages/page-082.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 82 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-083" aria-label="第 83 页">
-              <div class="page-number">第 83 / 200 页</div>
-              <img src="pages/page-083.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 83 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-084" aria-label="第 84 页">
-              <div class="page-number">第 84 / 200 页</div>
-              <img src="pages/page-084.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 84 页" loading="lazy" decoding="async" width="1041" height="1360">
-            </article>
-            
-            <article class="page" id="page-085" aria-label="第 85 页">
-              <div class="page-number">第 85 / 200 页</div>
-              <img src="pages/page-085.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 85 页" loading="lazy" decoding="async" width="1039" height="900">
-            </article>
-            
-            <article class="page" id="page-086" aria-label="第 86 页">
-              <div class="page-number">第 86 / 200 页</div>
-              <img src="pages/page-086.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 86 页" loading="lazy" decoding="async" width="1042" height="1428">
-            </article>
-            
-            <article class="page" id="page-087" aria-label="第 87 页">
-              <div class="page-number">第 87 / 200 页</div>
-              <img src="pages/page-087.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 87 页" loading="lazy" decoding="async" width="1041" height="900">
-            </article>
-            
-            <article class="page" id="page-088" aria-label="第 88 页">
-              <div class="page-number">第 88 / 200 页</div>
-              <img src="pages/page-088.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 88 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-089" aria-label="第 89 页">
-              <div class="page-number">第 89 / 200 页</div>
-              <img src="pages/page-089.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 89 页" loading="lazy" decoding="async" width="1043" height="900">
-            </article>
-            
-            <article class="page" id="page-090" aria-label="第 90 页">
-              <div class="page-number">第 90 / 200 页</div>
-              <img src="pages/page-090.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 90 页" loading="lazy" decoding="async" width="1041" height="900">
-            </article>
-            
-            <article class="page" id="page-091" aria-label="第 91 页">
-              <div class="page-number">第 91 / 200 页</div>
-              <img src="pages/page-091.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 91 页" loading="lazy" decoding="async" width="1039" height="1357">
-            </article>
-            
-            <article class="page" id="page-092" aria-label="第 92 页">
-              <div class="page-number">第 92 / 200 页</div>
-              <img src="pages/page-092.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 92 页" loading="lazy" decoding="async" width="1040" height="1488">
-            </article>
-            
-            <article class="page" id="page-093" aria-label="第 93 页">
-              <div class="page-number">第 93 / 200 页</div>
-              <img src="pages/page-093.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 93 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-094" aria-label="第 94 页">
-              <div class="page-number">第 94 / 200 页</div>
-              <img src="pages/page-094.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 94 页" loading="lazy" decoding="async" width="1019" height="1474">
-            </article>
-            
-            <article class="page" id="page-095" aria-label="第 95 页">
-              <div class="page-number">第 95 / 200 页</div>
-              <img src="pages/page-095.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 95 页" loading="lazy" decoding="async" width="1000" height="1472">
-            </article>
-            
-            <article class="page" id="page-096" aria-label="第 96 页">
-              <div class="page-number">第 96 / 200 页</div>
-              <img src="pages/page-096.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 96 页" loading="lazy" decoding="async" width="900" height="1440">
-            </article>
-            
-            <article class="page" id="page-097" aria-label="第 97 页">
-              <div class="page-number">第 97 / 200 页</div>
-              <img src="pages/page-097.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 97 页" loading="lazy" decoding="async" width="900" height="1522">
-            </article>
-            
-            <article class="page" id="page-098" aria-label="第 98 页">
-              <div class="page-number">第 98 / 200 页</div>
-              <img src="pages/page-098.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 98 页" loading="lazy" decoding="async" width="963" height="1440">
-            </article>
-            
-            <article class="page" id="page-099" aria-label="第 99 页">
-              <div class="page-number">第 99 / 200 页</div>
-              <img src="pages/page-099.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 99 页" loading="lazy" decoding="async" width="1040" height="952">
-            </article>
-            
-            <article class="page" id="page-100" aria-label="第 100 页">
-              <div class="page-number">第 100 / 200 页</div>
-              <img src="pages/page-100.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 100 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-101" aria-label="第 101 页">
-              <div class="page-number">第 101 / 200 页</div>
-              <img src="pages/page-101.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 101 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-102" aria-label="第 102 页">
-              <div class="page-number">第 102 / 200 页</div>
-              <img src="pages/page-102.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 102 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-103" aria-label="第 103 页">
-              <div class="page-number">第 103 / 200 页</div>
-              <img src="pages/page-103.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 103 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-104" aria-label="第 104 页">
-              <div class="page-number">第 104 / 200 页</div>
-              <img src="pages/page-104.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 104 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-105" aria-label="第 105 页">
-              <div class="page-number">第 105 / 200 页</div>
-              <img src="pages/page-105.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 105 页" loading="lazy" decoding="async" width="1042" height="1491">
-            </article>
-            
-            <article class="page" id="page-106" aria-label="第 106 页">
-              <div class="page-number">第 106 / 200 页</div>
-              <img src="pages/page-106.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 106 页" loading="lazy" decoding="async" width="900" height="1249">
-            </article>
-            
-            <article class="page" id="page-107" aria-label="第 107 页">
-              <div class="page-number">第 107 / 200 页</div>
-              <img src="pages/page-107.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 107 页" loading="lazy" decoding="async" width="1042" height="1363">
-            </article>
-            
-            <article class="page" id="page-108" aria-label="第 108 页">
-              <div class="page-number">第 108 / 200 页</div>
-              <img src="pages/page-108.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 108 页" loading="lazy" decoding="async" width="1041" height="1361">
-            </article>
-            
-            <article class="page" id="page-109" aria-label="第 109 页">
-              <div class="page-number">第 109 / 200 页</div>
-              <img src="pages/page-109.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 109 页" loading="lazy" decoding="async" width="1041" height="1484">
-            </article>
-            
-            <article class="page" id="page-110" aria-label="第 110 页">
-              <div class="page-number">第 110 / 200 页</div>
-              <img src="pages/page-110.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 110 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-111" aria-label="第 111 页">
-              <div class="page-number">第 111 / 200 页</div>
-              <img src="pages/page-111.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 111 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-112" aria-label="第 112 页">
-              <div class="page-number">第 112 / 200 页</div>
-              <img src="pages/page-112.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 112 页" loading="lazy" decoding="async" width="1040" height="1365">
-            </article>
-            
-            <article class="page" id="page-113" aria-label="第 113 页">
-              <div class="page-number">第 113 / 200 页</div>
-              <img src="pages/page-113.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 113 页" loading="lazy" decoding="async" width="1041" height="1362">
-            </article>
-            
-            <article class="page" id="page-114" aria-label="第 114 页">
-              <div class="page-number">第 114 / 200 页</div>
-              <img src="pages/page-114.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 114 页" loading="lazy" decoding="async" width="1042" height="1419">
-            </article>
-            
-            <article class="page" id="page-115" aria-label="第 115 页">
-              <div class="page-number">第 115 / 200 页</div>
-              <img src="pages/page-115.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 115 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-116" aria-label="第 116 页">
-              <div class="page-number">第 116 / 200 页</div>
-              <img src="pages/page-116.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 116 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-117" aria-label="第 117 页">
-              <div class="page-number">第 117 / 200 页</div>
-              <img src="pages/page-117.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 117 页" loading="lazy" decoding="async" width="1039" height="900">
-            </article>
-            
-            <article class="page" id="page-118" aria-label="第 118 页">
-              <div class="page-number">第 118 / 200 页</div>
-              <img src="pages/page-118.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 118 页" loading="lazy" decoding="async" width="1039" height="1360">
-            </article>
-            
-            <article class="page" id="page-119" aria-label="第 119 页">
-              <div class="page-number">第 119 / 200 页</div>
-              <img src="pages/page-119.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 119 页" loading="lazy" decoding="async" width="1040" height="1472">
-            </article>
-            
-            <article class="page" id="page-120" aria-label="第 120 页">
-              <div class="page-number">第 120 / 200 页</div>
-              <img src="pages/page-120.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 120 页" loading="lazy" decoding="async" width="1041" height="1338">
-            </article>
-            
-            <article class="page" id="page-121" aria-label="第 121 页">
-              <div class="page-number">第 121 / 200 页</div>
-              <img src="pages/page-121.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 121 页" loading="lazy" decoding="async" width="1044" height="1361">
-            </article>
-            
-            <article class="page" id="page-122" aria-label="第 122 页">
-              <div class="page-number">第 122 / 200 页</div>
-              <img src="pages/page-122.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 122 页" loading="lazy" decoding="async" width="900" height="1468">
-            </article>
-            
-            <article class="page" id="page-123" aria-label="第 123 页">
-              <div class="page-number">第 123 / 200 页</div>
-              <img src="pages/page-123.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 123 页" loading="lazy" decoding="async" width="900" height="1122">
-            </article>
-            
-            <article class="page" id="page-124" aria-label="第 124 页">
-              <div class="page-number">第 124 / 200 页</div>
-              <img src="pages/page-124.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 124 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-125" aria-label="第 125 页">
-              <div class="page-number">第 125 / 200 页</div>
-              <img src="pages/page-125.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 125 页" loading="lazy" decoding="async" width="1041" height="1360">
-            </article>
-            
-            <article class="page" id="page-126" aria-label="第 126 页">
-              <div class="page-number">第 126 / 200 页</div>
-              <img src="pages/page-126.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 126 页" loading="lazy" decoding="async" width="1040" height="1521">
-            </article>
-            
-            <article class="page" id="page-127" aria-label="第 127 页">
-              <div class="page-number">第 127 / 200 页</div>
-              <img src="pages/page-127.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 127 页" loading="lazy" decoding="async" width="900" height="1456">
-            </article>
-            
-            <article class="page" id="page-128" aria-label="第 128 页">
-              <div class="page-number">第 128 / 200 页</div>
-              <img src="pages/page-128.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 128 页" loading="lazy" decoding="async" width="900" height="1505">
-            </article>
-            
-            <article class="page" id="page-129" aria-label="第 129 页">
-              <div class="page-number">第 129 / 200 页</div>
-              <img src="pages/page-129.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 129 页" loading="lazy" decoding="async" width="1007" height="1443">
-            </article>
-            
-            <article class="page" id="page-130" aria-label="第 130 页">
-              <div class="page-number">第 130 / 200 页</div>
-              <img src="pages/page-130.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 130 页" loading="lazy" decoding="async" width="942" height="900">
-            </article>
-            
-            <article class="page" id="page-131" aria-label="第 131 页">
-              <div class="page-number">第 131 / 200 页</div>
-              <img src="pages/page-131.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 131 页" loading="lazy" decoding="async" width="1040" height="1360">
-            </article>
-            
-            <article class="page" id="page-132" aria-label="第 132 页">
-              <div class="page-number">第 132 / 200 页</div>
-              <img src="pages/page-132.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 132 页" loading="lazy" decoding="async" width="1042" height="1362">
-            </article>
-            
-            <article class="page" id="page-133" aria-label="第 133 页">
-              <div class="page-number">第 133 / 200 页</div>
-              <img src="pages/page-133.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 133 页" loading="lazy" decoding="async" width="1042" height="1492">
-            </article>
-            
-            <article class="page" id="page-134" aria-label="第 134 页">
-              <div class="page-number">第 134 / 200 页</div>
-              <img src="pages/page-134.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 134 页" loading="lazy" decoding="async" width="1040" height="1384">
-            </article>
-            
-            <article class="page" id="page-135" aria-label="第 135 页">
-              <div class="page-number">第 135 / 200 页</div>
-              <img src="pages/page-135.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 135 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-136" aria-label="第 136 页">
-              <div class="page-number">第 136 / 200 页</div>
-              <img src="pages/page-136.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 136 页" loading="lazy" decoding="async" width="900" height="1531">
-            </article>
-            
-            <article class="page" id="page-137" aria-label="第 137 页">
-              <div class="page-number">第 137 / 200 页</div>
-              <img src="pages/page-137.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 137 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-138" aria-label="第 138 页">
-              <div class="page-number">第 138 / 200 页</div>
-              <img src="pages/page-138.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 138 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-139" aria-label="第 139 页">
-              <div class="page-number">第 139 / 200 页</div>
-              <img src="pages/page-139.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 139 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-140" aria-label="第 140 页">
-              <div class="page-number">第 140 / 200 页</div>
-              <img src="pages/page-140.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 140 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-141" aria-label="第 141 页">
-              <div class="page-number">第 141 / 200 页</div>
-              <img src="pages/page-141.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 141 页" loading="lazy" decoding="async" width="1042" height="900">
-            </article>
-            
-            <article class="page" id="page-142" aria-label="第 142 页">
-              <div class="page-number">第 142 / 200 页</div>
-              <img src="pages/page-142.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 142 页" loading="lazy" decoding="async" width="1040" height="1359">
-            </article>
-            
-            <article class="page" id="page-143" aria-label="第 143 页">
-              <div class="page-number">第 143 / 200 页</div>
-              <img src="pages/page-143.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 143 页" loading="lazy" decoding="async" width="1042" height="1360">
-            </article>
-            
-            <article class="page" id="page-144" aria-label="第 144 页">
-              <div class="page-number">第 144 / 200 页</div>
-              <img src="pages/page-144.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 144 页" loading="lazy" decoding="async" width="1042" height="1520">
-            </article>
-            
-            <article class="page" id="page-145" aria-label="第 145 页">
-              <div class="page-number">第 145 / 200 页</div>
-              <img src="pages/page-145.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 145 页" loading="lazy" decoding="async" width="1040" height="1460">
-            </article>
-            
-            <article class="page" id="page-146" aria-label="第 146 页">
-              <div class="page-number">第 146 / 200 页</div>
-              <img src="pages/page-146.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 146 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-147" aria-label="第 147 页">
-              <div class="page-number">第 147 / 200 页</div>
-              <img src="pages/page-147.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 147 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-148" aria-label="第 148 页">
-              <div class="page-number">第 148 / 200 页</div>
-              <img src="pages/page-148.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 148 页" loading="lazy" decoding="async" width="1041" height="900">
-            </article>
-            
-            <article class="page" id="page-149" aria-label="第 149 页">
-              <div class="page-number">第 149 / 200 页</div>
-              <img src="pages/page-149.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 149 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-150" aria-label="第 150 页">
-              <div class="page-number">第 150 / 200 页</div>
-              <img src="pages/page-150.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 150 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-151" aria-label="第 151 页">
-              <div class="page-number">第 151 / 200 页</div>
-              <img src="pages/page-151.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 151 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-152" aria-label="第 152 页">
-              <div class="page-number">第 152 / 200 页</div>
-              <img src="pages/page-152.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 152 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-153" aria-label="第 153 页">
-              <div class="page-number">第 153 / 200 页</div>
-              <img src="pages/page-153.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 153 页" loading="lazy" decoding="async" width="1040" height="900">
-            </article>
-            
-            <article class="page" id="page-154" aria-label="第 154 页">
-              <div class="page-number">第 154 / 200 页</div>
-              <img src="pages/page-154.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 154 页" loading="lazy" decoding="async" width="1039" height="900">
-            </article>
-            
-            <article class="page" id="page-155" aria-label="第 155 页">
-              <div class="page-number">第 155 / 200 页</div>
-              <img src="pages/page-155.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 155 页" loading="lazy" decoding="async" width="1040" height="1525">
-            </article>
-            
-            <article class="page" id="page-156" aria-label="第 156 页">
-              <div class="page-number">第 156 / 200 页</div>
-              <img src="pages/page-156.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 156 页" loading="lazy" decoding="async" width="1042" height="1389">
-            </article>
-            
-            <article class="page" id="page-157" aria-label="第 157 页">
-              <div class="page-number">第 157 / 200 页</div>
-              <img src="pages/page-157.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 157 页" loading="lazy" decoding="async" width="1041" height="1494">
-            </article>
-            
-            <article class="page" id="page-158" aria-label="第 158 页">
-              <div class="page-number">第 158 / 200 页</div>
-              <img src="pages/page-158.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 158 页" loading="lazy" decoding="async" width="1041" height="1466">
-            </article>
-            
-            <article class="page" id="page-159" aria-label="第 159 页">
-              <div class="page-number">第 159 / 200 页</div>
-              <img src="pages/page-159.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 159 页" loading="lazy" decoding="async" width="1040" height="1420">
-            </article>
-            
-            <article class="page" id="page-160" aria-label="第 160 页">
-              <div class="page-number">第 160 / 200 页</div>
-              <img src="pages/page-160.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 160 页" loading="lazy" decoding="async" width="1040" height="1492">
-            </article>
-            
-            <article class="page" id="page-161" aria-label="第 161 页">
-              <div class="page-number">第 161 / 200 页</div>
-              <img src="pages/page-161.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 161 页" loading="lazy" decoding="async" width="900" height="1524">
-            </article>
-            
-            <article class="page" id="page-162" aria-label="第 162 页">
-              <div class="page-number">第 162 / 200 页</div>
-              <img src="pages/page-162.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 162 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-163" aria-label="第 163 页">
-              <div class="page-number">第 163 / 200 页</div>
-              <img src="pages/page-163.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 163 页" loading="lazy" decoding="async" width="1043" height="1360">
-            </article>
-            
-            <article class="page" id="page-164" aria-label="第 164 页">
-              <div class="page-number">第 164 / 200 页</div>
-              <img src="pages/page-164.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 164 页" loading="lazy" decoding="async" width="1043" height="1360">
-            </article>
-            
-            <article class="page" id="page-165" aria-label="第 165 页">
-              <div class="page-number">第 165 / 200 页</div>
-              <img src="pages/page-165.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 165 页" loading="lazy" decoding="async" width="1043" height="1360">
-            </article>
-            
-            <article class="page" id="page-166" aria-label="第 166 页">
-              <div class="page-number">第 166 / 200 页</div>
-              <img src="pages/page-166.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 166 页" loading="lazy" decoding="async" width="1040" height="1419">
-            </article>
-            
-            <article class="page" id="page-167" aria-label="第 167 页">
-              <div class="page-number">第 167 / 200 页</div>
-              <img src="pages/page-167.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 167 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-168" aria-label="第 168 页">
-              <div class="page-number">第 168 / 200 页</div>
-              <img src="pages/page-168.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 168 页" loading="lazy" decoding="async" width="1041" height="1360">
-            </article>
-            
-            <article class="page" id="page-169" aria-label="第 169 页">
-              <div class="page-number">第 169 / 200 页</div>
-              <img src="pages/page-169.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 169 页" loading="lazy" decoding="async" width="1041" height="1526">
-            </article>
-            
-            <article class="page" id="page-170" aria-label="第 170 页">
-              <div class="page-number">第 170 / 200 页</div>
-              <img src="pages/page-170.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 170 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-171" aria-label="第 171 页">
-              <div class="page-number">第 171 / 200 页</div>
-              <img src="pages/page-171.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 171 页" loading="lazy" decoding="async" width="1042" height="1496">
-            </article>
-            
-            <article class="page" id="page-172" aria-label="第 172 页">
-              <div class="page-number">第 172 / 200 页</div>
-              <img src="pages/page-172.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 172 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-173" aria-label="第 173 页">
-              <div class="page-number">第 173 / 200 页</div>
-              <img src="pages/page-173.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 173 页" loading="lazy" decoding="async" width="1042" height="1362">
-            </article>
-            
-            <article class="page" id="page-174" aria-label="第 174 页">
-              <div class="page-number">第 174 / 200 页</div>
-              <img src="pages/page-174.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 174 页" loading="lazy" decoding="async" width="1040" height="1492">
-            </article>
-            
-            <article class="page" id="page-175" aria-label="第 175 页">
-              <div class="page-number">第 175 / 200 页</div>
-              <img src="pages/page-175.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 175 页" loading="lazy" decoding="async" width="1019" height="1471">
-            </article>
-            
-            <article class="page" id="page-176" aria-label="第 176 页">
-              <div class="page-number">第 176 / 200 页</div>
-              <img src="pages/page-176.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 176 页" loading="lazy" decoding="async" width="900" height="1488">
-            </article>
-            
-            <article class="page" id="page-177" aria-label="第 177 页">
-              <div class="page-number">第 177 / 200 页</div>
-              <img src="pages/page-177.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 177 页" loading="lazy" decoding="async" width="900" height="1504">
-            </article>
-            
-            <article class="page" id="page-178" aria-label="第 178 页">
-              <div class="page-number">第 178 / 200 页</div>
-              <img src="pages/page-178.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 178 页" loading="lazy" decoding="async" width="943" height="1457">
-            </article>
-            
-            <article class="page" id="page-179" aria-label="第 179 页">
-              <div class="page-number">第 179 / 200 页</div>
-              <img src="pages/page-179.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 179 页" loading="lazy" decoding="async" width="900" height="1508">
-            </article>
-            
-            <article class="page" id="page-180" aria-label="第 180 页">
-              <div class="page-number">第 180 / 200 页</div>
-              <img src="pages/page-180.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 180 页" loading="lazy" decoding="async" width="900" height="1456">
-            </article>
-            
-            <article class="page" id="page-181" aria-label="第 181 页">
-              <div class="page-number">第 181 / 200 页</div>
-              <img src="pages/page-181.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 181 页" loading="lazy" decoding="async" width="900" height="1503">
-            </article>
-            
-            <article class="page" id="page-182" aria-label="第 182 页">
-              <div class="page-number">第 182 / 200 页</div>
-              <img src="pages/page-182.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 182 页" loading="lazy" decoding="async" width="900" height="1456">
-            </article>
-            
-            <article class="page" id="page-183" aria-label="第 183 页">
-              <div class="page-number">第 183 / 200 页</div>
-              <img src="pages/page-183.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 183 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-            <article class="page" id="page-184" aria-label="第 184 页">
-              <div class="page-number">第 184 / 200 页</div>
-              <img src="pages/page-184.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 184 页" loading="lazy" decoding="async" width="1042" height="1363">
-            </article>
-            
-            <article class="page" id="page-185" aria-label="第 185 页">
-              <div class="page-number">第 185 / 200 页</div>
-              <img src="pages/page-185.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 185 页" loading="lazy" decoding="async" width="1042" height="1363">
-            </article>
-            
-            <article class="page" id="page-186" aria-label="第 186 页">
-              <div class="page-number">第 186 / 200 页</div>
-              <img src="pages/page-186.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 186 页" loading="lazy" decoding="async" width="900" height="1534">
-            </article>
-            
-            <article class="page" id="page-187" aria-label="第 187 页">
-              <div class="page-number">第 187 / 200 页</div>
-              <img src="pages/page-187.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 187 页" loading="lazy" decoding="async" width="1043" height="1492">
-            </article>
-            
-            <article class="page" id="page-188" aria-label="第 188 页">
-              <div class="page-number">第 188 / 200 页</div>
-              <img src="pages/page-188.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 188 页" loading="lazy" decoding="async" width="904" height="1520">
-            </article>
-            
-            <article class="page" id="page-189" aria-label="第 189 页">
-              <div class="page-number">第 189 / 200 页</div>
-              <img src="pages/page-189.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 189 页" loading="lazy" decoding="async" width="964" height="1443">
-            </article>
-            
-            <article class="page" id="page-190" aria-label="第 190 页">
-              <div class="page-number">第 190 / 200 页</div>
-              <img src="pages/page-190.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 190 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-191" aria-label="第 191 页">
-              <div class="page-number">第 191 / 200 页</div>
-              <img src="pages/page-191.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 191 页" loading="lazy" decoding="async" width="900" height="1439">
-            </article>
-            
-            <article class="page" id="page-192" aria-label="第 192 页">
-              <div class="page-number">第 192 / 200 页</div>
-              <img src="pages/page-192.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 192 页" loading="lazy" decoding="async" width="900" height="1520">
-            </article>
-            
-            <article class="page" id="page-193" aria-label="第 193 页">
-              <div class="page-number">第 193 / 200 页</div>
-              <img src="pages/page-193.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 193 页" loading="lazy" decoding="async" width="1020" height="1440">
-            </article>
-            
-            <article class="page" id="page-194" aria-label="第 194 页">
-              <div class="page-number">第 194 / 200 页</div>
-              <img src="pages/page-194.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 194 页" loading="lazy" decoding="async" width="900" height="1521">
-            </article>
-            
-            <article class="page" id="page-195" aria-label="第 195 页">
-              <div class="page-number">第 195 / 200 页</div>
-              <img src="pages/page-195.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 195 页" loading="lazy" decoding="async" width="1020" height="1472">
-            </article>
-            
-            <article class="page" id="page-196" aria-label="第 196 页">
-              <div class="page-number">第 196 / 200 页</div>
-              <img src="pages/page-196.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 196 页" loading="lazy" decoding="async" width="900" height="1440">
-            </article>
-            
-            <article class="page" id="page-197" aria-label="第 197 页">
-              <div class="page-number">第 197 / 200 页</div>
-              <img src="pages/page-197.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 197 页" loading="lazy" decoding="async" width="900" height="1496">
-            </article>
-            
-            <article class="page" id="page-198" aria-label="第 198 页">
-              <div class="page-number">第 198 / 200 页</div>
-              <img src="pages/page-198.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 198 页" loading="lazy" decoding="async" width="900" height="1456">
-            </article>
-            
-            <article class="page" id="page-199" aria-label="第 199 页">
-              <div class="page-number">第 199 / 200 页</div>
-              <img src="pages/page-199.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 199 页" loading="lazy" decoding="async" width="900" height="1522">
-            </article>
-            
-            <article class="page" id="page-200" aria-label="第 200 页">
-              <div class="page-number">第 200 / 200 页</div>
-              <img src="pages/page-200.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 200 页" loading="lazy" decoding="async" width="900" height="900">
-            </article>
-            
-    </section>
+    
+      <section class="text-page" id="page-001" aria-label="第 1 页文字">
+        <div class="page-no">第 1 页</div>
+        <p>蘸蘸：一只从三楼监狱开始的猫</p>
+<p>这不是一个温柔的养猫故事。</p>
+<p>如果从“蘸蘸每天接我回家”开始写，那会太晚，也太像是在给我自己找一个温柔的开头。</p>
+<p>真正的故事，应该从2023年3月21日开始。</p>
+<p>那一天，蘸蘸第一次来到我家。</p>
+<p>它被我放在三楼。</p>
+<p>现在回头看，那不是一个真正的家。</p>
+<p>那更像是一间三楼监狱。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>一、2023年3月21日，蘸蘸来到三楼</h3>
+<p>蘸蘸不是我从小养大的猫。</p>
+<p>它以前有主人。</p>
+<p>以前的主人会抱着它睡觉。</p>
+<p>所以它不是一只天生不能靠近人的猫，也不是一只天生只能被关着、只能远远看着人的猫。</p>
+<p>它曾经可以进家，可以被抱着，可以睡在人身边。</p>
+<p>它以前还有一只小母猫伙伴。</p>
+<p>后来，那只小母猫被丢掉了。</p>
+<p>蘸蘸因为胆小，躲在床底下，所以留了下来。</p>
+<p>我也找过那只小母猫。</p>
+<p>但没有找到。</p>
+<p>后来，它还是被留给了我。</p>
+<p>我以前也问过，能不能把蘸蘸接回去。</p>
+      </section>
+      <section class="text-page" id="page-002" aria-label="第 2 页文字">
+        <div class="page-no">第 2 页</div>
+        <p>他说不要。</p>
+<p>那时候我其实就应该明白，蘸蘸已经不是“暂时放在我这里”的猫了。</p>
+<p>它已经被推到我这里了。</p>
+<p>只是我很⻓时间里，没有真正承认这一点。</p>
+<p>那时候我家里已经有另外两只猫。</p>
+<p>它不是我满心期待接回来的那一只。</p>
+<p>我一开始也没有把这件事当成一个很重的承诺。</p>
+<p>我只是想：</p>
+<p>随便喂一下吧。</p>
+<p>蘸蘸来到我这里以前。</p>
+<p>我和前主人说过一句玩笑话。</p>
+<p>大概意思是：</p>
+<p>如果哪天真的养不了了，就送到我这里来。</p>
+<p>那时候我只是随口说说。</p>
+<p>一句玩笑。</p>
+<p>我从来没有想过。</p>
+<p>后来真的会变成现实。</p>
+<p>更没有想过。</p>
+<p>那只猫会在我这里生活三年半。</p>
+<p>会接我回家。</p>
+<p>会记住我的拖鞋声。</p>
+<p>会记住我的⻋。</p>
+      </section>
+      <section class="text-page" id="page-003" aria-label="第 3 页文字">
+        <div class="page-no">第 3 页</div>
+        <p>会让我痛成现在这样。</p>
+<p>后来回头看。</p>
+<p>那句玩笑其实一点都不好笑。</p>
+<p>因为从蘸蘸来到我这里那天开始。</p>
+<p>它就已经把自己的后半生交给我了。</p>
+<p>而我直到它离开以后。</p>
+<p>才真正明白这件事。</p>
+<p class="caption">【配图：2023年3月21日，蘸蘸刚来到三楼的照片】</p>
+      </section>
+      <section class="image-page" id="page-004" aria-label="第 4 页图片">
+        <div class="page-no">第 4 页</div>
+        <img src="pages/page-004.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 4 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-005" aria-label="第 5 页图片">
+        <div class="page-no">第 5 页</div>
+        <img src="pages/page-005.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 5 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-006" aria-label="第 6 页图片">
+        <div class="page-no">第 6 页</div>
+        <img src="pages/page-006.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 6 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-007" aria-label="第 7 页图片">
+        <div class="page-no">第 7 页</div>
+        <img src="pages/page-007.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 7 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-008" aria-label="第 8 页图片">
+        <div class="page-no">第 8 页</div>
+        <img src="pages/page-008.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 8 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-009" aria-label="第 9 页图片">
+        <div class="page-no">第 9 页</div>
+        <img src="pages/page-009.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 9 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-010" aria-label="第 10 页图片">
+        <div class="page-no">第 10 页</div>
+        <img src="pages/page-010.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 10 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-011" aria-label="第 11 页图片">
+        <div class="page-no">第 11 页</div>
+        <img src="pages/page-011.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 11 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-012" aria-label="第 12 页图片">
+        <div class="page-no">第 12 页</div>
+        <img src="pages/page-012.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 12 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-013" aria-label="第 13 页图片">
+        <div class="page-no">第 13 页</div>
+        <img src="pages/page-013.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 13 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-014" aria-label="第 14 页图片">
+        <div class="page-no">第 14 页</div>
+        <img src="pages/page-014.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 14 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-015" aria-label="第 15 页图片">
+        <div class="page-no">第 15 页</div>
+        <img src="pages/page-015.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 15 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-016" aria-label="第 16 页图片">
+        <div class="page-no">第 16 页</div>
+        <img src="pages/page-016.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 16 页" loading="lazy" decoding="async" width="1517" height="2194">
+      </section>
+      <section class="text-page" id="page-017" aria-label="第 17 页文字">
+        <div class="page-no">第 17 页</div>
+        <p>它坐在三楼，眼睛圆圆的，身体紧着，像是不知道自己为什么会来到这里。</p>
+<p>我喂了它猫条。</p>
+<p>它虽然怕，但还是吃了。</p>
+<p>后来它也睡了。</p>
+<p>生活好像就这样继续了。</p>
+<p>我那时候没有意识到，从我接住它的那一天开始，它的一生就已经和我有关了。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二、三楼的两年：有饭，有猫砂，但不是完整的家</h3>
+<p>蘸蘸在三楼待了很久。</p>
+<p>现在回头看，我不能说它完全没人管。</p>
+<p>我喂它，给它水，给它猫砂盆。</p>
+<p>它乱拉，我会清理。</p>
+<p>它把猫砂弄得到处都是，我会处理。</p>
+<p>它去厕所很频繁，埋猫砂的动作特别大，经常把猫砂刨得到处都是。</p>
+<p>它也乱尿。</p>
+<p>因为乱尿，我确实买过六个猫砂盆。</p>
+<p>不是大概六个。</p>
+<p>是六个。</p>
+<p>我试过换猫砂盆，试过调整位置，也试过换猫粮。</p>
+<p>2023年到2024年中，我也给它换过别的猫粮，但没有成功，后来又换回了它原来吃的猫粮。</p>
+<p>那时候它还尿过几滴几滴的血。</p>
+<p>2023年时，我甚至怀疑过它是不是尿闭了。</p>
+<p>我没有真正带它去做系统检查。</p>
+      </section>
+      <section class="text-page" id="page-018" aria-label="第 18 页文字">
+        <div class="page-no">第 18 页</div>
+        <p>我只是拿玉米须煮水给它喝。</p>
+<p>我以为那样是在帮它。</p>
+<p>可是没有什么用。</p>
+<p>现在回头看，我会想，也许那时候它的身体就已经给过信号了。</p>
+<p>也许它的肾、它的尿路、它的身体，早就不是好的。</p>
+<p>可当时我没有看懂。</p>
+<p>我只是把这些看成麻烦。</p>
+<p>乱尿是麻烦。</p>
+<p>猫砂弄得到处都是是麻烦。</p>
+<p>经常去厕所是麻烦。</p>
+<p>尿血，我也没有真正理解成一个很严重的警告。</p>
+<p class="caption">【配图：2023年三楼生活照片，蘸蘸吃、睡、躲、看人的样子】</p>
+      </section>
+      <section class="image-page" id="page-019" aria-label="第 19 页图片">
+        <div class="page-no">第 19 页</div>
+        <img src="pages/page-019.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 19 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-020" aria-label="第 20 页图片">
+        <div class="page-no">第 20 页</div>
+        <img src="pages/page-020.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 20 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-021" aria-label="第 21 页图片">
+        <div class="page-no">第 21 页</div>
+        <img src="pages/page-021.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 21 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-022" aria-label="第 22 页文字">
+        <div class="page-no">第 22 页</div>
+        <p>蘸蘸也有过看起来放松的时候。</p>
+<p>它会躺在地上，会翻身，会玩逗猫棒，会睡猫抓板。</p>
+<p>天气热的时候，我给它剃过毛。</p>
+<p class="caption">【配图：2023年7月，蘸蘸剃毛后的照片】</p>
+      </section>
+      <section class="image-page" id="page-023" aria-label="第 23 页图片">
+        <div class="page-no">第 23 页</div>
+        <img src="pages/page-023.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 23 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-024" aria-label="第 24 页文字">
+        <div class="page-no">第 24 页</div>
+        <p class="caption">【配图：2023年8月，蘸蘸躺在地上、翻肚子的照片】</p>
+      </section>
+      <section class="image-page" id="page-025" aria-label="第 25 页图片">
+        <div class="page-no">第 25 页</div>
+        <img src="pages/page-025.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 25 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="text-page" id="page-026" aria-label="第 26 页文字">
+        <div class="page-no">第 26 页</div>
+        <p class="caption">【配图：2023年10月，蘸蘸玩逗猫棒的照片】</p>
+      </section>
+      <section class="image-page" id="page-027" aria-label="第 27 页图片">
+        <div class="page-no">第 27 页</div>
+        <img src="pages/page-027.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 27 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-028" aria-label="第 28 页文字">
+        <div class="page-no">第 28 页</div>
+        <p>所以我不能说它从一开始就完全没有被照顾。</p>
+<p>但我也不能说，那是一个真正完整的家。</p>
+      </section>
+      <section class="text-page" id="page-029" aria-label="第 29 页文字">
+        <div class="page-no">第 29 页</div>
+        <p>因为它一直是被隔开的。</p>
+<p>别的猫在我的生活里。</p>
+<p>蘸蘸在另一个房间里。</p>
+<p>它有饭，有水，有猫砂，有睡觉的地方。</p>
+<p>可是它没有真正被我抱进生活里。</p>
+<p>三楼一开始并不是污染区。</p>
+<p>在它刚来之前，我拖过三楼的地。</p>
+<p>后来，是猫砂、猫毛、乱尿、灰尘、粘毛、清理这些事情一次次发生以后，我慢慢把三楼当成了污</p>
+<p>染区。</p>
+<p>也慢慢把它和“脏”绑在了一起。</p>
+<p>“蘸蘸”这个名字，一开始其实也来自“脏脏”。</p>
+<p>这个名字后来变成了它留在我心里最深的名字。</p>
+<p>可最开始，它带着我的偏⻅。</p>
+<p>我觉得它脏。</p>
+<p>觉得它麻烦。</p>
+<p>觉得它乱尿。</p>
+<p>觉得它弄得到处都是。</p>
+<p>墙上有它留下的抓痕。</p>
+<p class="caption">【配图：三楼墙上的抓痕】</p>
+      </section>
+      <section class="text-page" id="page-030" aria-label="第 30 页文字">
+        <div class="page-no">第 30 页</div>
+        <p>那些抓痕，是它想出来的时候留下的。</p>
+<p>它不是没有想出来过。</p>
+      </section>
+      <section class="text-page" id="page-031" aria-label="第 31 页文字">
+        <div class="page-no">第 31 页</div>
+        <p>不是没有试过离开。</p>
+<p>我打开⻔，它会跑过来。</p>
+<p>它知道⻔在哪里。</p>
+<p>知道我会从哪里出现。</p>
+<p>知道三楼的墙、地板、猫窝和我的拖鞋。</p>
+<p>可我那时候看⻅更多的是猫砂、毛、乱尿、灰尘。</p>
+<p>我不是完全不管它。</p>
+<p>但我只是维持它活着。</p>
+<p>我没有真正把它当成家里的猫。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>三、我试过一次，但只试了几个小时</h3>
+<p>2023年7月14日，我也不是完全没有试过让蘸蘸改变生活的位置。</p>
+<p>那天，我想让它住到二楼。</p>
+<p>可是没过几个小时，它就被追赶。</p>
+<p>后来我一开⻔，它一下就跑了出来。</p>
+<p>第二天，也就是7月15日，我又把它带回了三楼。</p>
+<p class="caption">【配图】</p>
+      </section>
+      <section class="image-page" id="page-032" aria-label="第 32 页图片">
+        <div class="page-no">第 32 页</div>
+        <img src="pages/page-032.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 32 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="text-page" id="page-033" aria-label="第 33 页文字">
+        <div class="page-no">第 33 页</div>
+        <p>带回了那个我现在叫作“三楼监狱”的地方。</p>
+<p>这里不是为了把责任推给别的猫。</p>
+<p>不是。</p>
+<p>是我试过。</p>
+<p>但我只试了几个小时。</p>
+<p>几个小时失败以后，我就没有继续认真尝试。</p>
+<p>我没有做更⻓时间的隔离适应。</p>
+<p>没有慢慢换味道。</p>
+<p>没有隔⻔相⻅。</p>
+<p>没有用一个月、两个月、三个月去解决这个问题。</p>
+      </section>
+      <section class="text-page" id="page-034" aria-label="第 34 页文字">
+        <div class="page-no">第 34 页</div>
+        <p>我只是记住了：</p>
+<p>会打架。</p>
+<p>会乱尿。</p>
+<p>会麻烦。</p>
+<p>于是后来很⻓一段时间，我都没有继续尝试。</p>
+<p>这也是事实。</p>
+<div class="rule" aria-hidden="true"></div>
+<p class="caption">【配图：2023年， 无意义】</p>
+      </section>
+      <section class="text-page" id="page-035" aria-label="第 35 页文字">
+        <div class="page-no">第 35 页</div>
+        <h3>四、我三年几乎没有抱过它</h3>
+<p>这是我现在最难面对的事实之一。</p>
+<p>三年来，我几乎没有好好抱过蘸蘸。</p>
+<p>不是因为它从来不让我抱。</p>
+<p>而是我不敢。</p>
+<p>我怕它脏。</p>
+<p>怕它身上的灰尘、细菌、病毒。</p>
+<p>怕我接触它以后，再把这些东⻄带到我认定的干净地方。</p>
+<p>明明猫都打过疫苗，可我还是怕。</p>
+<p>后来我才知道，这和我的强迫规则有关。</p>
+<p>我的大脑会把地方分成干净区和污染区，会把“外面”“楼下”“它待过的地方”都变成危险的东⻄。</p>
+      </section>
+      <section class="text-page" id="page-036" aria-label="第 36 页文字">
+        <div class="page-no">第 36 页</div>
+        <p>所以我不敢像抱家里的猫那样抱它。</p>
+<p>我会抓它。</p>
+<p>会用两只手控制它。</p>
+<p>会用牵引绳绑着它。</p>
+<p>会把它从它想去的地方抓回来。</p>
+<p>我以为那是在管理。</p>
+<p>现在回头看，那也是一种隔离。</p>
+<p>它可能不明白，为什么我会喂它、管它、找它，却又不真正抱它。</p>
+<p>它只知道，我会来。</p>
+<p>但我不会像抱家里的猫那样抱它。</p>
+<div class="rule" aria-hidden="true"></div>
+<p class="caption">【配图：2024年， 剃毛拼了一只猫陪它】</p>
+      </section>
+      <section class="image-page" id="page-037" aria-label="第 37 页图片">
+        <div class="page-no">第 37 页</div>
+        <img src="pages/page-037.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 37 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-038" aria-label="第 38 页图片">
+        <div class="page-no">第 38 页</div>
+        <img src="pages/page-038.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 38 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-039" aria-label="第 39 页图片">
+        <div class="page-no">第 39 页</div>
+        <img src="pages/page-039.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 39 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-040" aria-label="第 40 页文字">
+        <div class="page-no">第 40 页</div>
+        <h3>五、它不是没有被照顾，但没有被我公平地爱</h3>
+<p>如果有人问我：你是不是完全没管蘸蘸？</p>
+<p>不是。</p>
+<p>我管过它。</p>
+<p>我喂它，铲屎，买猫砂盆，换猫粮，给它剃毛，给它猫条，给它猫窝，后来还给它买定位器，做小</p>
+<p>窝，带它看病，输液，导尿，喂水，喂葡萄糖。</p>
+<p>这些都是真的。</p>
+<p>可是还有另一件事也是真的：</p>
+<p>我没有公平地爱它。</p>
+<p>它是后来的。</p>
+<p>它是被别人遗弃后才来到我这里的。</p>
+      </section>
+      <section class="text-page" id="page-041" aria-label="第 41 页文字">
+        <div class="page-no">第 41 页</div>
+        <p>我一开始只是想随便喂一下。</p>
+<p>我没有真正把它放到和家里其他猫一样的位置。</p>
+<p>所以蘸蘸在我家活了三年多，却一直像是站在⻔口的猫。</p>
+<p>它离我很近。</p>
+<p>但它没有真正进来。</p>
+<div class="rule" aria-hidden="true"></div>
+<p class="caption">【配图：2024年10月， 我穿了一身奇怪的衣服蘸蘸表示疑惑】</p>
+      </section>
+      <section class="text-page" id="page-042" aria-label="第 42 页文字">
+        <div class="page-no">第 42 页</div>
+        <h3>六、2025年，它从三楼到了楼下</h3>
+<p>后来，家里的安排变了。</p>
+      </section>
+      <section class="text-page" id="page-043" aria-label="第 43 页文字">
+        <div class="page-no">第 43 页</div>
+        <p>蘸蘸被我放到了楼下。</p>
+<p>那个地方，我后来一直叫它小黑屋。</p>
+<p>很小。</p>
+<p>很暗。</p>
+<p>不是一个适合猫⻓期生活的地方。</p>
+<p class="caption">【配图：2025年2月，小黑屋里的蘸蘸】</p>
+      </section>
+      <section class="image-page" id="page-044" aria-label="第 44 页图片">
+        <div class="page-no">第 44 页</div>
+        <img src="pages/page-044.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 44 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-045" aria-label="第 45 页图片">
+        <div class="page-no">第 45 页</div>
+        <img src="pages/page-045.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 45 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-046" aria-label="第 46 页文字">
+        <div class="page-no">第 46 页</div>
+        <p>小黑屋白天不是完全黑的。</p>
+<p>有一点光，有一个窗。</p>
+      </section>
+      <section class="text-page" id="page-047" aria-label="第 47 页文字">
+        <div class="page-no">第 47 页</div>
+        <p>可是它很小，很封闭。</p>
+<p>下雨的时候会潮湿。</p>
+<p>水会顺着墙边流下来。</p>
+<p>地上会湿。</p>
+<p>我那时候其实知道，把它放到楼下，它可能不会过得很好。</p>
+<p>可是我还是这么做了。</p>
+<p>我没有真正给它一个重新进入家的机会。</p>
+<p>我只是把它放到了楼下。</p>
+<p>这不是完整的家。</p>
+<p>是又一次隔开。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>七、它想出去，而我总是把它抓回来</h3>
+<p>蘸蘸不喜欢小黑屋。</p>
+<p>它想出来。</p>
+<p>它会越狱。</p>
+<p>其实在2023年到2024年，它也越狱过。</p>
+<p>只是那时候，它还局限在楼上。</p>
+<p>它熟悉三楼。</p>
+<p>熟悉那些房间。</p>
+<p>熟悉那里的味道。</p>
+<p>所以后来它跑上三楼，不是没有原因。</p>
+<p>那里曾经是它生活过两年的地方。</p>
+<p>到了楼下以后，它也会跑出去。</p>
+      </section>
+      <section class="text-page" id="page-048" aria-label="第 48 页文字">
+        <div class="page-no">第 48 页</div>
+        <p>它会闻草，会走到石头上，会躺下，会看夜里的路。</p>
+<p class="caption">【配图：2025年2月， 越狱跑别人家里，放⻛】</p>
+      </section>
+      <section class="image-page" id="page-049" aria-label="第 49 页图片">
+        <div class="page-no">第 49 页</div>
+        <img src="pages/page-049.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 49 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-050" aria-label="第 50 页图片">
+        <div class="page-no">第 50 页</div>
+        <img src="pages/page-050.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 50 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="text-page" id="page-051" aria-label="第 51 页文字">
+        <div class="page-no">第 51 页</div>
+        <p>现在回头看，我才意识到，蘸蘸也许不是一只完全不能在外面活的猫。</p>
+<p>它以前也有过外出和打猎的经验。</p>
+      </section>
+      <section class="text-page" id="page-052" aria-label="第 52 页文字">
+        <div class="page-no">第 52 页</div>
+        <p>前主人家里出事以后，它也曾经在外面活下来过。</p>
+<p>它会躲，会跑，会找地方藏，也知道怎么从一些危险里避开。</p>
+<p>它不是一只离开房间就一定活不了的猫。</p>
+<p>它后来会跳上⻋，会跳上狗屋，会跳到平房上，也会从三楼、二楼这些地方自己移动。</p>
+<p>这些都说明，它身体好的时候，是有能力、有路线、有野性的。</p>
+<p>所以我后来才会更痛。</p>
+<p>因为我给它的不是一种真正安全的自由。</p>
+<p>我给它的，是一点点放出来，然后再抓回去。</p>
+<p>是它想出去，我怕它丢。</p>
+<p>是它想回来，我又把它关回小黑屋。</p>
+<p>野外不一定没有痛苦。</p>
+<p>外面有⻋，有狗，有雨，有病了以后没人发现的危险。</p>
+<p>可是小黑屋也不是安全。</p>
+<p>三楼也不是家。</p>
+<p>蘸蘸本来可能有能力过一种更自由、更像自己的生活。</p>
+<p>而我给它的，却是控制。</p>
+<p class="caption">【配图：2025年3月，蘸蘸放⻛、躺在石头上的照片】</p>
+      </section>
+      <section class="image-page" id="page-053" aria-label="第 53 页图片">
+        <div class="page-no">第 53 页</div>
+        <img src="pages/page-053.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 53 页" loading="lazy" decoding="async" width="1056" height="2258">
+      </section>
+      <section class="image-page" id="page-054" aria-label="第 54 页图片">
+        <div class="page-no">第 54 页</div>
+        <img src="pages/page-054.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 54 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-055" aria-label="第 55 页图片">
+        <div class="page-no">第 55 页</div>
+        <img src="pages/page-055.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 55 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-056" aria-label="第 56 页图片">
+        <div class="page-no">第 56 页</div>
+        <img src="pages/page-056.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 56 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-057" aria-label="第 57 页图片">
+        <div class="page-no">第 57 页</div>
+        <img src="pages/page-057.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 57 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-058" aria-label="第 58 页图片">
+        <div class="page-no">第 58 页</div>
+        <img src="pages/page-058.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 58 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-059" aria-label="第 59 页图片">
+        <div class="page-no">第 59 页</div>
+        <img src="pages/page-059.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 59 页" loading="lazy" decoding="async" width="1517" height="2194">
+      </section>
+      <section class="text-page" id="page-060" aria-label="第 60 页文字">
+        <div class="page-no">第 60 页</div>
+        <p>不是因为我真正理解它需要自由，而是因为我怕它跑丢。</p>
+<p>所以我每次给它一点自由，又很快把它抓回来。</p>
+<p>它喜欢外面。</p>
+<p>我知道。</p>
+<p>可我还是把它关回去。</p>
+<p>小黑屋原来有一扇小⻔。</p>
+<p>如果那扇⻔不锁，它可以进去躲雨，也可以出来。</p>
+<p>可后来⻔被我锁了。</p>
+<p>一开始⻔只是用绳子勾一下。</p>
+<p>它力气很大，会撞开。</p>
+<p>后来⻔变成了铁锁。</p>
+<p>它再也撞不开。</p>
+<p>它只能叫。</p>
+<p>再后来，它慢慢也不怎么叫了。</p>
+<p>因为它知道，叫也没有用。</p>
+<p>它只会在我打开⻔的时候快速跑出来。</p>
+<p>或者听到我的声音时，叫我给它开⻔。</p>
+<p>定位器也是一样。</p>
+<p>里面有我的担心。</p>
+<p>也有我的控制。</p>
+<p>我怕它被狗追。</p>
+<p>怕它跑进别人家的楼里出不来。</p>
+<p>怕它死在外面我找不到。</p>
+      </section>
+      <section class="text-page" id="page-061" aria-label="第 61 页文字">
+        <div class="page-no">第 61 页</div>
+        <p>这些担心是真的。</p>
+<p>可最后的结果也是真的：</p>
+<p>我把“我能找到它”，当成了“它是安全的”。</p>
+<p>我把“它在我控制的范围里”，当成了“它被我保护了”。</p>
+<p>可我能找到它，不等于它舒服。</p>
+<p>我能控制它，不等于它自由。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>八、3月15日前和6月前后的自由</h3>
+<p>这里我不能美化。</p>
+<p>2025年3月15日以前，蘸蘸几乎一直是关禁闭的。</p>
+<p>我会在一楼听到它在小黑屋里面叫。</p>
+<p>它叫，我听得到。</p>
+<p>但它还是被关着。</p>
+<p>那时候它不是自由生活的猫。</p>
+<p>它是被关在小黑屋里的猫。</p>
+<p>后来慢慢开始放它出来，也不是完全自由。</p>
+<p>每次放⻛，时间都很短。</p>
+<p>我给它一点点外面的时间，又很快把它抓回去。</p>
+<p>6月以前，它基本是白天可以出来，晚上还是会被关回小黑屋。</p>
+<p>到了6月以后，它在楼下的时间更多了。</p>
+<p>但那也不是真正完整的自由。</p>
+<p>如果我看到它跳到邻居⻋上，或者跳到别人⻋上，我还是会把它抓回来，关进小黑屋。</p>
+<p>所以它的自由一直不是完整的自由。</p>
+      </section>
+      <section class="text-page" id="page-062" aria-label="第 62 页文字">
+        <div class="page-no">第 62 页</div>
+        <p>是我允许的、随时可以收回的自由。</p>
+<p>它不是想离开，它是在回来</p>
+<p>我家前面的隔壁，有两间拆掉的小房子。</p>
+<p>那里⻓满杂草。</p>
+<p>对一只猫来说，那是一个很有吸引力的地方。</p>
+<p>蘸蘸经常会过去。</p>
+<p>以前我以为它喜欢自由。</p>
+<p>喜欢外面。</p>
+<p>喜欢那些草丛和废弃的房子。</p>
+<p>可后来我才发现。</p>
+<p>事情好像不是这样。</p>
+<p>因为它去了那里以后，只要我叫它，它大部分时候都会回来。</p>
+<p>它不是一只想逃走的猫。</p>
+<p>如果它真的想走，其实有很多机会。</p>
+<p>它知道路。</p>
+<p>知道草丛。</p>
+<p>知道外面。</p>
+<p>知道哪里可以藏身。</p>
+<p>可它还是会回来。</p>
+<p>所以后来我慢慢明白。</p>
+<p>它喜欢的或许不是草丛。</p>
+<p>不是⻋。</p>
+      </section>
+      <section class="text-page" id="page-063" aria-label="第 63 页文字">
+        <div class="page-no">第 63 页</div>
+        <p>不是露天小窝。</p>
+<p>不是防水小窝。</p>
+<p>而是这里有一个它愿意回来的人。</p>
+<p class="caption">【配图】</p>
+      </section>
+      <section class="image-page" id="page-064" aria-label="第 64 页图片">
+        <div class="page-no">第 64 页</div>
+        <img src="pages/page-064.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 64 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-065" aria-label="第 65 页图片">
+        <div class="page-no">第 65 页</div>
+        <img src="pages/page-065.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 65 页" loading="lazy" decoding="async" width="1517" height="2087">
+      </section>
+      <section class="text-page" id="page-066" aria-label="第 66 页文字">
+        <div class="page-no">第 66 页</div>
+        <h3>九、自来水、铜钱草和楼下的生活</h3>
+<p>楼下有一个井圈。</p>
+<p>一开始，井圈里没有后来那么多铜钱草，只有一些杂草。</p>
+<p>铜钱草原本是家里人养在脸盆里的。</p>
+<p>那个脸盆里的水很脏。</p>
+<p>我看⻅蘸蘸喝过那里面的水。</p>
+<p>那时候我心里起过一个很不好的念头：</p>
+<p>它连这种脏水都会喝。</p>
+<p>6月以前，我给它喝的是烧熟的凉白开。</p>
+<p>后来我看到它总是去喝外面的脏水，制止不了，也开始偷懒。</p>
+<p>我开始给它接自来水喝。</p>
+<p>我当时觉得，它在外面都喝这种水了，自来水应该也没什么。</p>
+<p>我不能把所有因果都百分百证明成只来自自来水。</p>
+<p>我不能说自来水一定导致了10月24日那次尿闭。</p>
+<p>但在我的故事里，这是我不能跳过的事实：</p>
+<p>我看⻅它喝脏水。</p>
+<p>我没有坚持给它更干净、更稳定的饮水。</p>
+<p>我偷懒了。</p>
+<p>后来它尿闭了。</p>
+<p>而这次尿闭，也检查出了它肾里类似多囊肾的气泡。</p>
+<p>10月24日检查以后，我又把水换回了凉白开。</p>
+<p>后来，我把脸盆里的铜钱草倒进井圈。</p>
+<p>那些铜钱草没有死。</p>
+      </section>
+      <section class="text-page" id="page-067" aria-label="第 67 页文字">
+        <div class="page-no">第 67 页</div>
+        <p>反而慢慢⻓成了一大片。</p>
+<p>再后来，蘸蘸死后，我又把它最后用过的一部分猫砂倒进了这个井圈。</p>
+<p>铜钱草还在⻓。</p>
+<p>井圈还在。</p>
+<p>可它不在了。</p>
+<p>那个地方现在像是留下了它楼下生活的一部分痕迹。</p>
+<p>脏水。</p>
+<p>铜钱草。</p>
+<p>井圈。</p>
+<p>猫砂。</p>
+<p>还有我从“随便一点也可以”开始，一点点降低了对它的标准。</p>
+<p class="caption">【配图】</p>
+      </section>
+      <section class="image-page" id="page-068" aria-label="第 68 页图片">
+        <div class="page-no">第 68 页</div>
+        <img src="pages/page-068.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 68 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-069" aria-label="第 69 页图片">
+        <div class="page-no">第 69 页</div>
+        <img src="pages/page-069.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 69 页" loading="lazy" decoding="async" width="1518" height="2088">
+      </section>
+      <section class="text-page" id="page-070" aria-label="第 70 页文字">
+        <div class="page-no">第 70 页</div>
+        <h3>十、它开始接我回家</h3>
+<p>后来，蘸蘸开始接我回家。</p>
+<p>一开始，它只是远远出现。</p>
+<p>后来，它会走到⻋边。</p>
+<p>再后来，它跳上我的⻋。</p>
+<p>趴在挡⻛玻璃前。</p>
+<p>往⻋里看。</p>
+<p>有一天，它甚至跳到我的腿上。</p>
+<p class="caption">【配图：2025年3月18日看我】</p>
+      </section>
+      <section class="image-page" id="page-071" aria-label="第 71 页图片">
+        <div class="page-no">第 71 页</div>
+        <img src="pages/page-071.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 71 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-072" aria-label="第 72 页文字">
+        <div class="page-no">第 72 页</div>
+        <p class="caption">【配图：2025年3月21日，蘸蘸开始接我回家，旁边有狗】</p>
+      </section>
+      <section class="image-page" id="page-073" aria-label="第 73 页图片">
+        <div class="page-no">第 73 页</div>
+        <img src="pages/page-073.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 73 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-074" aria-label="第 74 页文字">
+        <div class="page-no">第 74 页</div>
+        <p class="caption">【配图：2025年3月26日，蘸蘸跳上⻋】</p>
+      </section>
+      <section class="image-page" id="page-075" aria-label="第 75 页图片">
+        <div class="page-no">第 75 页</div>
+        <img src="pages/page-075.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 75 页" loading="lazy" decoding="async" width="1056" height="2258">
+      </section>
+      <section class="text-page" id="page-076" aria-label="第 76 页文字">
+        <div class="page-no">第 76 页</div>
+        <p class="caption">【配图：2025年4月14日，蘸蘸跳到我腿上的照片】</p>
+      </section>
+      <section class="image-page" id="page-077" aria-label="第 77 页图片">
+        <div class="page-no">第 77 页</div>
+        <img src="pages/page-077.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 77 页" loading="lazy" decoding="async" width="1081" height="2258">
+      </section>
+      <section class="image-page" id="page-078" aria-label="第 78 页图片">
+        <div class="page-no">第 78 页</div>
+        <img src="pages/page-078.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 78 页" loading="lazy" decoding="async" width="1786" height="2526">
+      </section>
+      <section class="image-page" id="page-079" aria-label="第 79 页图片">
+        <div class="page-no">第 79 页</div>
+        <img src="pages/page-079.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 79 页" loading="lazy" decoding="async" width="1082" height="2167">
+      </section>
+      <section class="image-page" id="page-080" aria-label="第 80 页图片">
+        <div class="page-no">第 80 页</div>
+        <img src="pages/page-080.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 80 页" loading="lazy" decoding="async" width="1082" height="2169">
+      </section>
+      <section class="image-page" id="page-081" aria-label="第 81 页图片">
+        <div class="page-no">第 81 页</div>
+        <img src="pages/page-081.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 81 页" loading="lazy" decoding="async" width="1517" height="1195">
+      </section>
+      <section class="image-page" id="page-082" aria-label="第 82 页图片">
+        <div class="page-no">第 82 页</div>
+        <img src="pages/page-082.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 82 页" loading="lazy" decoding="async" width="1517" height="1256">
+      </section>
+      <section class="image-page" id="page-083" aria-label="第 83 页图片">
+        <div class="page-no">第 83 页</div>
+        <img src="pages/page-083.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 83 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-084" aria-label="第 84 页图片">
+        <div class="page-no">第 84 页</div>
+        <img src="pages/page-084.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 84 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-085" aria-label="第 85 页图片">
+        <div class="page-no">第 85 页</div>
+        <img src="pages/page-085.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 85 页" loading="lazy" decoding="async" width="1517" height="1256">
+      </section>
+      <section class="image-page" id="page-086" aria-label="第 86 页图片">
+        <div class="page-no">第 86 页</div>
+        <img src="pages/page-086.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 86 页" loading="lazy" decoding="async" width="1517" height="2099">
+      </section>
+      <section class="image-page" id="page-087" aria-label="第 87 页图片">
+        <div class="page-no">第 87 页</div>
+        <img src="pages/page-087.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 87 页" loading="lazy" decoding="async" width="1518" height="1255">
+      </section>
+      <section class="image-page" id="page-088" aria-label="第 88 页图片">
+        <div class="page-no">第 88 页</div>
+        <img src="pages/page-088.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 88 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-089" aria-label="第 89 页图片">
+        <div class="page-no">第 89 页</div>
+        <img src="pages/page-089.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 89 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-090" aria-label="第 90 页图片">
+        <div class="page-no">第 90 页</div>
+        <img src="pages/page-090.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 90 页" loading="lazy" decoding="async" width="1518" height="1304">
+      </section>
+      <section class="image-page" id="page-091" aria-label="第 91 页图片">
+        <div class="page-no">第 91 页</div>
+        <img src="pages/page-091.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 91 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-092" aria-label="第 92 页文字">
+        <div class="page-no">第 92 页</div>
+        <p>这些照片现在看起来，每一张都像是在重复同一句话：</p>
+<p>它在等我。</p>
+      </section>
+      <section class="text-page" id="page-093" aria-label="第 93 页文字">
+        <div class="page-no">第 93 页</div>
+        <p>那时候我只是觉得：</p>
+<p>它又来了。</p>
+<p>后来我才知道，那不是“又来了”。</p>
+<p>那是它在等我。</p>
+<p>猫不会因为责任等人。</p>
+<p>猫不会因为道理等人。</p>
+<p>它每天来，是因为它记得我会回来。</p>
+<p>它把我写进了它的日常里。</p>
+<p>可是我当时只是习惯了。</p>
+<p>它接我。</p>
+<p>我摸一下。</p>
+<p>喂一下。</p>
+<p>然后上楼。</p>
+<p>它继续留在楼下。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>十一、我叫它的方式</h3>
+<p>我叫蘸蘸，有两种方式。</p>
+<p>如果它离得远，我会真的张开嘴喊：</p>
+<p>蘸蘸。</p>
+<p>如果它离得近，我很多时候不会大声喊。</p>
+<p>我会闭着嘴，把舌尖放在最前面，发出“啧啧”的声音。</p>
+<p>那个声音有点像“蘸蘸”。</p>
+<p>它听得懂。</p>
+      </section>
+      <section class="text-page" id="page-094" aria-label="第 94 页文字">
+        <div class="page-no">第 94 页</div>
+        <p>它接我回家的时候，我发出这个声音，它就会跟着我走进一楼。</p>
+<p>它会躺进那个破旧的小纸盒里。</p>
+<p>那是它在一楼的位置。</p>
+<p>它想要的不是位置</p>
+<p>后来我才慢慢明白，我以前可能把“自由”想得太简单了。</p>
+<p>那时候我以为，只要它不再只待在三楼，只要它能到一楼，能到⻔口，能到外面，能去草丛，能睡</p>
+<p>在露天小窝和防水小窝里，就总比三楼好一点。</p>
+<p>因为三楼像监狱。</p>
+<p>而一楼至少看起来有一点自由。</p>
+<p>可是后来我想起越来越多细节，才发现事情不是这样简单。</p>
+<p>我在一楼吃饭时，它会睡在小破纸盒里。</p>
+<p>我走到⻔口吃饭，它也会跟过来，蹲着，或者躺着。</p>
+<p>我从三楼往下看，有时会看到它睡在一楼⻔口，也会叫。</p>
+<p>以前我没有在意。</p>
+<p>我只是觉得它又在那里。</p>
+<p>可是现在回头看，那些位置都有同一个原因。</p>
+<p>不是那里本身有多好。</p>
+<p>而是那里离我近。</p>
+<p>或者那里能等到我。</p>
+<p>所以一楼的些许自由，也许并没有我以为的那么好。</p>
+<p>一楼确实有外面。</p>
+<p>有⻔口。</p>
+<p>有草丛。</p>
+      </section>
+      <section class="text-page" id="page-095" aria-label="第 95 页文字">
+        <div class="page-no">第 95 页</div>
+        <p>有洗衣板。</p>
+<p>有露天小窝和防水小窝。</p>
+<p>可是那里并不真正安全。</p>
+<p>它也许一直要听声音，要看动静，要判断人、⻋、别的动物。</p>
+<p>它能出去，却不一定安心。</p>
+<p>它想进来，也不一定能进来。</p>
+<p>而三楼虽然像监狱，虽然也不是一个真正的家，可它在那里也许还能听⻅我的声音，闻到我的味</p>
+<p>道，知道我就在附近。</p>
+<p>所以问题从来不是一楼好，还是三楼好。</p>
+<p>也不是露天小窝好，还是防水小窝好。</p>
+<p>蘸蘸真正想要的，也许不是某一个地方。</p>
+<p>它只是想靠近我。</p>
+<p>想跟着我。</p>
+<p>想进入我所在的生活里。</p>
+<p>只是我那时候一直在给它安排位置。</p>
+<p>却没有真正看懂，它想要的不是位置。</p>
+<p>它认得的是我</p>
+<p>以前我一直觉得。</p>
+<p>蘸蘸喜欢洗衣板。</p>
+<p>喜欢露天小窝。</p>
+<p>喜欢防水小窝。</p>
+<p>喜欢在⻋旁边等我。</p>
+<p>后来才发现。</p>
+      </section>
+      <section class="text-page" id="page-096" aria-label="第 96 页文字">
+        <div class="page-no">第 96 页</div>
+        <p>也许它喜欢的从来都不是那些东⻄。</p>
+<p>而是我。</p>
+<p>晚上开⻔的时候，它常常会跑出来。</p>
+<p>它记得我的拖鞋声。</p>
+<p>记得我的⻋。</p>
+<p>后来我也才明白，蘸蘸会上别人的⻋，也不是没有原因。</p>
+<p>以前我可能会觉得它乱跑，觉得它不懂危险，觉得它怎么连别人的⻋也会上。</p>
+<p>可是现在想，它也许不是喜欢⻋本身。</p>
+<p>它是在找我。</p>
+<p>因为我的⻋对它来说，不只是⻋。</p>
+<p>那是我回来的声音。</p>
+<p>是我出现的地方。</p>
+<p>是它每天等我、接我、看⻅我的方式。</p>
+<p>所以它看到别人的⻋，也许会靠近，也许会上去，也许是在分辨那是不是我。</p>
+<p>它不知道每一辆⻋背后是不是我。</p>
+<p>它只是记得，我常常从⻋里回来。</p>
+<p>原来它连上别人的⻋，也可能是在找我。</p>
+<p>记得我叫它的声音。</p>
+<p>有时候离得近，我不会直接喊它名字。</p>
+<p>而是发出一种很轻的声音。</p>
+<p>像一个只有我们才懂的小暗号。</p>
+<p>它听得懂。</p>
+      </section>
+      <section class="text-page" id="page-097" aria-label="第 97 页文字">
+        <div class="page-no">第 97 页</div>
+        <p>也会回应。</p>
+<p>我以前以为这些都很普通。</p>
+<p>后来才知道。</p>
+<p>原来这些都是它记住我的方式。</p>
+<p>它躺在那里。</p>
+<p>我铲屎，换粮，收拾。</p>
+<p>然后时间到了，我又把它关进小黑屋。</p>
+<p>这也是它很普通的一天。</p>
+<p>普通到我以前没有觉得有什么问题。</p>
+<p>现在回头看，那个普通本身就很痛。</p>
+<p>因为它跟着我进来，躺进纸盒里，也许以为自己回家了。</p>
+<p>可我只是让它待一会儿。</p>
+<p>待一会儿以后，它还是要回小黑屋。</p>
+<p>后来才想起，它去过那么多地方</p>
+<p>整理照片和回忆的时候，我才发现自己忘掉了很多事情。</p>
+<p>以前我总觉得，蘸蘸的世界好像只有小黑屋、洗衣板、防水小窝和露天小窝。</p>
+<p>可事实并不是这样。</p>
+<p>⻔一打开，它就会跑进一楼。</p>
+<p>它也会往楼上跑。</p>
+<p>二楼窗台、楼梯、三楼、甚至四楼，它都去过。</p>
+<p>其实我一直知道。</p>
+<p>只是很多时候，我会假装没看⻅。</p>
+<p>因为只要我假装没看⻅，它就好像没有真正进入我设定的干净区。</p>
+      </section>
+      <section class="text-page" id="page-098" aria-label="第 98 页文字">
+        <div class="page-no">第 98 页</div>
+        <p>我不用面对自己的规则被打破。</p>
+<p>不用面对它其实也想成为家里一部分这件事。</p>
+<p>后来回头看，蘸蘸并不是完全被关在小黑屋里的猫。</p>
+<p>它其实早就一点一点走进来了。</p>
+<p>只是我一直没有真正承认。</p>
+<p>更让我难受的是，我后来也想到，如果蘸蘸后来真的熬过最后那次病，我也未必会⻢上反思。</p>
+<p>现在是雨季。</p>
+<p>昨天在下雨。</p>
+<p>今天也在下雨。</p>
+<p>明天可能还是下雨。</p>
+<p>如果它还活着，我很可能还是会用同样的理由，把它关回小黑屋。</p>
+<p>我会觉得外面下雨，不安全。</p>
+<p>会觉得它会淋湿。</p>
+<p>会觉得它进来会乱尿、会弄脏、会打乱我的规则。</p>
+<p>我可能还是会对自己说：</p>
+<p>先这样吧。</p>
+<p>等雨停了再说。</p>
+<p>等它好一点再说。</p>
+<p>等以后再想办法。</p>
+<p>可是我现在才明白，很多事情就是在这样的“以后”里被拖没了。</p>
+<p>所以最痛的不是只有它没有熬过去。</p>
+<p>而是就算它熬过去，我也可能还没有真正看懂它想要什么。</p>
+      </section>
+      <section class="text-page" id="page-099" aria-label="第 99 页文字">
+        <div class="page-no">第 99 页</div>
+        <p>死亡只是把这件事突然停住了。</p>
+<p>也把我一直不愿面对的东⻄，全部推到了我面前。</p>
+<p class="caption">【配图：蘸蘸小互动】</p>
+      </section>
+      <section class="image-page" id="page-100" aria-label="第 100 页图片">
+        <div class="page-no">第 100 页</div>
+        <img src="pages/page-100.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 100 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-101" aria-label="第 101 页图片">
+        <div class="page-no">第 101 页</div>
+        <img src="pages/page-101.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 101 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-102" aria-label="第 102 页图片">
+        <div class="page-no">第 102 页</div>
+        <img src="pages/page-102.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 102 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-103" aria-label="第 103 页图片">
+        <div class="page-no">第 103 页</div>
+        <img src="pages/page-103.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 103 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-104" aria-label="第 104 页图片">
+        <div class="page-no">第 104 页</div>
+        <img src="pages/page-104.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 104 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="text-page" id="page-105" aria-label="第 105 页文字">
+        <div class="page-no">第 105 页</div>
+        <div class="rule" aria-hidden="true"></div>
+<h3>十二、井盖和洗衣板</h3>
+<p>楼下有一个高低不平的井盖。</p>
+<p>井盖旁边经常有水。</p>
+<p>蘸蘸不喜欢踩水。</p>
+<p>所以每次回来，它会踩着井盖走。</p>
+<p>井盖一响，就会发出一声“咯噔”。</p>
+<p>我在楼上听⻅那个声音，就知道它回来了。</p>
+<p>以前它胖，那个声音很明显。</p>
+<p>后来它越来越瘦。</p>
+      </section>
+      <section class="text-page" id="page-106" aria-label="第 106 页文字">
+        <div class="page-no">第 106 页</div>
+        <p>连井盖的声音都变轻了。</p>
+<p>那时候我没有真正明白。</p>
+<p>我以为只是声音变小了。</p>
+<p>其实是它变轻了。</p>
+<p>井盖旁边还有一块洗衣板。</p>
+<p>蘸蘸会在那里睡，也会在那里吃猫条。</p>
+<p>很多猫条都是在那里喂的。</p>
+<p>我用手指尖轻轻敲一下洗衣板。</p>
+<p>水泥会发出一声很脆的声音。</p>
+<p>它听⻅，就会跳上来。</p>
+<p>有时候猫条还没有拿出来，它已经知道我要喂它了。</p>
+<p>井盖的声音，是我知道它回来了。</p>
+<p>洗衣板的声音，是它知道我在叫它。</p>
+<p>这些声音以前都很普通。</p>
+<p>普通到我没有意识到，那其实是我和它之间的暗号。</p>
+<p>现在井盖还在。</p>
+<p>洗衣板还在。</p>
+<p>可是听⻅声音会跳上来的蘸蘸不在了。</p>
+<p class="caption">【配图：2026年6月20日，防水小屋，洗衣板，以及发出“咯噔”声高低不平的井盖】</p>
+      </section>
+      <section class="image-page" id="page-107" aria-label="第 107 页图片">
+        <div class="page-no">第 107 页</div>
+        <img src="pages/page-107.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 107 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-108" aria-label="第 108 页图片">
+        <div class="page-no">第 108 页</div>
+        <img src="pages/page-108.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 108 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-109" aria-label="第 109 页图片">
+        <div class="page-no">第 109 页</div>
+        <img src="pages/page-109.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 109 页" loading="lazy" decoding="async" width="1518" height="2185">
+      </section>
+      <section class="text-page" id="page-110" aria-label="第 110 页文字">
+        <div class="page-no">第 110 页</div>
+        <h3>十三、楼下的蘸蘸，也有自己的世界</h3>
+<p>蘸蘸在楼下，也不是完全没有自己的生活。</p>
+<p>隔壁家的狗很乖。</p>
+<p>有时候，我会把它剩下的猫粮拿去喂那只狗。</p>
+<p>我还会指着它，对狗说：</p>
+<p>帮我看一下它。</p>
+<p>那只狗一年多都没有咬过它。</p>
+<p>有时候别的狗追它，那只狗还会护一下。</p>
+<p>楼下也有流浪猫会过来吃东⻄。</p>
+<p>我不知道那些流浪猫到底算不算它的朋友。</p>
+<p>也许它们只是来吃它的猫粮。</p>
+<p>也许它打不过，护不住自己的⻝物。</p>
+<p>我分不清。</p>
+<p>这些都是它在楼下生活的一部分。</p>
+<p>它有狗，有流浪猫，有⻋，有草，有雨，有小窝，有外面的⻛。</p>
+<p>也有危险。</p>
+<p>也有潮湿。</p>
+<p>也有小黑屋。</p>
+<p>也有我一次次把它抓回去的手。</p>
+<p>晚上，我有时候会在楼顶打开定位器。</p>
+<p>定位器会发出红光。</p>
+<p>我会看那一点红光在哪里。</p>
+<p>如果我看到红光在别人⻋上，我就知道它又跳到别人⻋上了。</p>
+      </section>
+      <section class="text-page" id="page-111" aria-label="第 111 页文字">
+        <div class="page-no">第 111 页</div>
+        <p>我会叫它。</p>
+<p>它喵一声。</p>
+<p>摇尾巴。</p>
+<p>我看到红光在别人⻋上，就会下去把它捉回来。</p>
+<p>然后关进小黑屋。</p>
+<p class="caption">【配图：25年4月楼下的蘸蘸，曾经都上锁的小黑屋出入口和⻔】</p>
+      </section>
+      <section class="image-page" id="page-112" aria-label="第 112 页图片">
+        <div class="page-no">第 112 页</div>
+        <img src="pages/page-112.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 112 页" loading="lazy" decoding="async" width="1517" height="2000">
+      </section>
+      <section class="image-page" id="page-113" aria-label="第 113 页图片">
+        <div class="page-no">第 113 页</div>
+        <img src="pages/page-113.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 113 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-114" aria-label="第 114 页图片">
+        <div class="page-no">第 114 页</div>
+        <img src="pages/page-114.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 114 页" loading="lazy" decoding="async" width="1518" height="2088">
+      </section>
+      <section class="text-page" id="page-115" aria-label="第 115 页文字">
+        <div class="page-no">第 115 页</div>
+        <h3>十四、我喜欢它接我，但没有真正接住它</h3>
+<p>可是我也不能把这件事写得太温柔。</p>
+<p>有时候，我并不想让蘸蘸发现我回来了。</p>
+<p>我只是想在⻋上躺一会儿。</p>
+<p>不想下⻋。</p>
+<p>不想开灯。</p>
+<p>不想被谁看⻅。</p>
+<p>甚至有时候，我会把⻋灯都关掉，像是想躲起来。</p>
+<p>因为我知道，只要蘸蘸发现我回来了，它就可能会过来接我。</p>
+<p>那时候我有时会觉得烦。</p>
+<p>觉得它又来了。</p>
+<p>觉得我只是想安静一会儿，为什么它又要来。</p>
+<p>可它还是来。</p>
+<p>它不知道我在躲它。</p>
+<p>也不知道我有时候会嫌它烦。</p>
+<p>它只是记得我的⻋，记得我的声音，记得我回家的时间。</p>
+<p>它以为我回来了，就应该出来接我。</p>
+<p>现在想起来，这个细节比“它每天接我”更痛。</p>
+<p>因为它不是只在我想被需要的时候来。</p>
+<p>它是在我不想面对它、不想下⻋、不想被发现的时候，也还是来。</p>
+<p>它把我当成要等的人。</p>
+<p>而我有时候，连被它等着都觉得烦。</p>
+<p>我现在承认，我是自私的。</p>
+      </section>
+      <section class="text-page" id="page-116" aria-label="第 116 页文字">
+        <div class="page-no">第 116 页</div>
+        <p>我喜欢蘸蘸接我。</p>
+<p>我喜欢有一只猫每天在楼下等我。</p>
+<p>那种感觉让我觉得自己被需要。</p>
+<p>如果它真的住进家里，它可能就不会每天这样在楼下等我了。</p>
+<p>我享受了它的等待。</p>
+<p>却没有承担它等待背后的责任。</p>
+<p>它给了我“被等着回家”的感觉。</p>
+<p>我给它的，却还是楼下、小黑屋、短暂的摸摸、短暂的陪伴。</p>
+<p>这件事现在想起来很痛。</p>
+<p>因为我不是不喜欢它。</p>
+<p>我只是到最后才明白，我其实很喜欢它。</p>
+<p class="caption">【配图：蘸蘸小互动】</p>
+      </section>
+      <section class="image-page" id="page-117" aria-label="第 117 页图片">
+        <div class="page-no">第 117 页</div>
+        <img src="pages/page-117.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 117 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-118" aria-label="第 118 页图片">
+        <div class="page-no">第 118 页</div>
+        <img src="pages/page-118.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 118 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-119" aria-label="第 119 页图片">
+        <div class="page-no">第 119 页</div>
+        <img src="pages/page-119.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 119 页" loading="lazy" decoding="async" width="1517" height="2169">
+      </section>
+      <section class="text-page" id="page-120" aria-label="第 120 页文字">
+        <div class="page-no">第 120 页</div>
+        <p>蘸蘸很早就有一个露天小窝。</p>
+<p>那不是8月7日才搭好的，只是那天我拍到了它睡在里面。</p>
+<p>那个小窝在植物旁边，有一点遮挡，有光，也有可以躲进去的地方。</p>
+<p>它很喜欢那里。</p>
+<p>它会睡在里面。</p>
+<p>直到它离世前，它也还睡过那个小窝。</p>
+<p class="caption">【配图：2025年8月7日，露天小窝里的蘸蘸】</p>
+      </section>
+      <section class="image-page" id="page-121" aria-label="第 121 页图片">
+        <div class="page-no">第 121 页</div>
+        <img src="pages/page-121.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 121 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-122" aria-label="第 122 页图片">
+        <div class="page-no">第 122 页</div>
+        <img src="pages/page-122.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 122 页" loading="lazy" decoding="async" width="1082" height="2172">
+      </section>
+      <section class="text-page" id="page-123" aria-label="第 123 页文字">
+        <div class="page-no">第 123 页</div>
+        <p>那个露天小窝，是它从三楼到楼下以后少数熟悉、愿意待的地方之一。</p>
+<p>我还准备过防水小窝。</p>
+<p>下雨天，它可以躲进去。</p>
+<p>防水小窝放在隔壁家的副⻔口，隔壁家不住。</p>
+<p>那个⻔往里凹，可以躲掉大部分雨，但躲不掉全部。</p>
+<p>很早以前，我看⻅它在那里躲雨。</p>
+<p>它身上还是有些地方被淋湿了。</p>
+<p>我记得那时候的它很脏。</p>
+<p>眼睛里有一种说不出的绝望。</p>
+<p>它朝我喵了一声。</p>
+<p>声音很低沉，从高到低。</p>
+<p>可是它不愿意进小黑屋躲雨。</p>
+<p>它不喜欢小黑屋。</p>
+<p>后来天气冷了，我又用外卖保温箱给它做了一个暖和的小窝。</p>
+<p>支架是玻璃纤维，我怕刮到它，就用胶带缠了好几圈。</p>
+<p>里面垫了东⻄。</p>
+<p class="caption">【配图：2025年10月26日，保温箱小窝】</p>
+      </section>
+      <section class="image-page" id="page-124" aria-label="第 124 页图片">
+        <div class="page-no">第 124 页</div>
+        <img src="pages/page-124.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 124 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-125" aria-label="第 125 页图片">
+        <div class="page-no">第 125 页</div>
+        <img src="pages/page-125.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 125 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-126" aria-label="第 126 页文字">
+        <div class="page-no">第 126 页</div>
+        <p>这些事情证明，我不是完全没有照顾它。</p>
+<p>可是这些窝，也证明了另一个事实：</p>
+<p>我一直在给它安排“外面的位置”。</p>
+      </section>
+      <section class="text-page" id="page-127" aria-label="第 127 页文字">
+        <div class="page-no">第 127 页</div>
+        <p>而不是把它真正接回家。</p>
+<p>记得我装防水小窝的时候，装了很久。</p>
+<p>大概一个小时。</p>
+<p>蘸蘸躲在装防水小窝的快递箱子里，陪了我一个小时。</p>
+<p>现在回头看，那是一个很具体的画面。</p>
+<p>我在给它装一个可以躲雨的小窝。</p>
+<p>它在旁边的纸箱里看着我。</p>
+<p>陪着我。</p>
+<p>所以后来6月16日，它已经很虚弱的时候，还想去那个防水小窝，我才会那么痛。</p>
+<p>因为那不是一个普通的小窝。</p>
+<p>那是它躲过雨的地方。</p>
+<p>是它不想进小黑屋时待过的地方。</p>
+<p>也是它看着我装起来的地方。</p>
+<p>可是最后那天，它想去，我还是没有让它去。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>十六、10月，医生说它肾里有类似多囊肾的气泡</h3>
+<p>2025年10月24日，蘸蘸尿闭了。</p>
+<p>那次检查，医生说它肾里有类似多囊肾的气泡。</p>
+<p>那天，我也跟蘸蘸以前的主人说过。</p>
+<p>我说蘸蘸尿闭了。</p>
+<p>他说：</p>
+<p>安乐吧。</p>
+      </section>
+      <section class="text-page" id="page-128" aria-label="第 128 页文字">
+        <div class="page-no">第 128 页</div>
+        <p>那一刻我心里其实很冷。</p>
+<p>因为以前我问过他，要不要把蘸蘸接回去。</p>
+<p>他说不要。</p>
+<p>后来蘸蘸真的病了，他又只是隔着很远说安乐。</p>
+<p>也许他说那句话时，并不知道蘸蘸经历了什么。</p>
+<p>也许他只是觉得病到这个程度很难救。</p>
+<p>可对我来说，那句话让我彻底明白，他已经不是会把蘸蘸接回去的人。</p>
+<p>从那以后，我也不再把他当朋友。</p>
+<p>不是因为他必须替我承担后来的一切。</p>
+<p>而是因为蘸蘸曾经也是他的猫。</p>
+<p>可当蘸蘸真的走到生病、痛苦、需要人承担的时候，他没有接住它。</p>
+<p>而我也没有真正接住它。</p>
+<p>医生说可以做尿道改造手术，但多囊肾没有办法真正处理，只能延缓。</p>
+<p>最后医生只开了一个三百多元的肾益生菌。</p>
+<p>我买了。</p>
+<p>我不是舍不得花那三百多元。</p>
+<p>可是我后来才知道，那个东⻄更多只是辅助，不能真正解决肾的问题。</p>
+<p>最让我恨的地方，是我那时候没有真正被告知，也没有真正理解：</p>
+<p>这个病不是简单吃点东⻄就能好。</p>
+<p>它无法治好，只能管理，只能尽量延缓。</p>
+<p>现在我回头看，那次诊疗里最缺少的，不只是药。</p>
+<p>更缺的是对一只慢性肾病猫以后该怎么⻓期照顾的说明。</p>
+<p>没有人很清楚地告诉我，它以后不能再像普通猫一样随便吃。</p>
+      </section>
+      <section class="text-page" id="page-129" aria-label="第 129 页文字">
+        <div class="page-no">第 129 页</div>
+        <p>没有人把“肾脏问题”“饮⻝管理”“复查”“⻓期照顾”这些事情，完整地放到我面前。</p>
+<p>没有人让我真正意识到：</p>
+<p>它从那一天开始，就不该再被我当成一只普通猫来养了。</p>
+<p>它不是“尿闭好了就回家”。</p>
+<p>它是一只需要⻓期管理、⻓期观察、⻓期复查的病猫。</p>
+<p>但我也不能把责任全部推给医院。</p>
+<p>因为它是我的猫。</p>
+<p>我本来应该追问。</p>
+<p>本来应该查。</p>
+<p>本来应该意识到，尿闭、尿血、肾里有气泡，这些不是一次看完医生、拿点药就可以结束的事情。</p>
+<p>医院没有讲清楚，是事实。</p>
+<p>我没有真正理解，也是事实。</p>
+<p>而它的身体，就在这些没有被讲清楚、也没有被我真正追问的空白里，一点点继续往下坏。</p>
+<p>我现在才知道，肾不好的猫，饮⻝本来就是很重要的事。</p>
+<p>普通猫粮也许不该继续喂。</p>
+<p>高蛋白的东⻄也不能再随便喂。</p>
+<p>它需要的是复查，是管理，是换饮⻝，是⻓期照顾。</p>
+<p>可那时候的我没有真的懂。</p>
+<p>我只是以为，它这次尿闭解决了，能回家了，就算过去了。</p>
+<p>我明明花了钱。</p>
+<p>明明买了医生开的东⻄。</p>
+<p>明明把它带去了医院。</p>
+      </section>
+      <section class="text-page" id="page-130" aria-label="第 130 页文字">
+        <div class="page-no">第 130 页</div>
+        <p>可是我没有真正知道，它面对的是什么。</p>
+<p>于是我继续生活在自己的舒适圈里。</p>
+<p>它继续吃普通猫粮。</p>
+<p>继续在楼下。</p>
+<p>继续进小黑屋。</p>
+<p>继续用它的身体一点点承受我没有看懂的病。</p>
+<p>这不是逃避。</p>
+<p>不是说“我不知道，所以我无罪”。</p>
+<p>正因为我不知道，正因为我没有继续追问，正因为它是我的猫，这才是我现在最痛的地方。</p>
+<p class="caption">【配图：2025年10月24日，蘸蘸在医院】</p>
+      </section>
+      <section class="image-page" id="page-131" aria-label="第 131 页图片">
+        <div class="page-no">第 131 页</div>
+        <img src="pages/page-131.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 131 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-132" aria-label="第 132 页图片">
+        <div class="page-no">第 132 页</div>
+        <img src="pages/page-132.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 132 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-133" aria-label="第 133 页文字">
+        <div class="page-no">第 133 页</div>
+        <p>后来我把它接回家，买药，在⻋里陪它几个小时。</p>
+      </section>
+      <section class="text-page" id="page-134" aria-label="第 134 页文字">
+        <div class="page-no">第 134 页</div>
+        <p>可是晚上，还是关小黑屋。</p>
+<p>那时候的我一边开始在乎，一边还没有真正改变。</p>
+<p>我开始救它。</p>
+<p>但我还没有真正把它从旧的安排里救出来。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>十七、它越来越瘦，我还以为日子会继续</h3>
+<p>2026年1月、2月，蘸蘸还是会接我。</p>
+<p>它坐在⻋前，跳上⻋，趴在挡⻛玻璃前，或者走到我脚边。</p>
+<p class="caption">【配图：2026年1月23日，蘸蘸随手拍】</p>
+      </section>
+      <section class="image-page" id="page-135" aria-label="第 135 页图片">
+        <div class="page-no">第 135 页</div>
+        <img src="pages/page-135.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 135 页" loading="lazy" decoding="async" width="1517" height="1258">
+      </section>
+      <section class="image-page" id="page-136" aria-label="第 136 页图片">
+        <div class="page-no">第 136 页</div>
+        <img src="pages/page-136.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 136 页" loading="lazy" decoding="async" width="1302" height="2258">
+      </section>
+      <section class="text-page" id="page-137" aria-label="第 137 页文字">
+        <div class="page-no">第 137 页</div>
+        <p class="caption">【配图：2026年2月16日，蘸蘸坐在⻋前】</p>
+      </section>
+      <section class="image-page" id="page-138" aria-label="第 138 页图片">
+        <div class="page-no">第 138 页</div>
+        <img src="pages/page-138.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 138 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-139" aria-label="第 139 页图片">
+        <div class="page-no">第 139 页</div>
+        <img src="pages/page-139.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 139 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-140" aria-label="第 140 页图片">
+        <div class="page-no">第 140 页</div>
+        <img src="pages/page-140.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 140 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="text-page" id="page-141" aria-label="第 141 页文字">
+        <div class="page-no">第 141 页</div>
+        <p class="caption">【配图：2026年2月20日，蘸蘸接我回家，还是高冷不让摸】</p>
+      </section>
+      <section class="image-page" id="page-142" aria-label="第 142 页图片">
+        <div class="page-no">第 142 页</div>
+        <img src="pages/page-142.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 142 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="image-page" id="page-143" aria-label="第 143 页图片">
+        <div class="page-no">第 143 页</div>
+        <img src="pages/page-143.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 143 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-144" aria-label="第 144 页文字">
+        <div class="page-no">第 144 页</div>
+        <p>这些照片太普通了。</p>
+<p>普通到当时我不会觉得它们有什么意义。</p>
+      </section>
+      <section class="text-page" id="page-145" aria-label="第 145 页文字">
+        <div class="page-no">第 145 页</div>
+        <p>可现在回头看，它们都是倒数。</p>
+<p>我不知道那时候它已经在慢慢变瘦。</p>
+<p>或者说，我看到了，但没有真正看懂。</p>
+<p>3月7日，蘸蘸跑上三楼来。</p>
+<p>它躺在我午睡的折叠床上。</p>
+<p>那张床在我心里的污染区。</p>
+<p>隔壁就是它曾经住过两年的房间。</p>
+<p>我怕它进去。</p>
+<p>所以我咳了一声。</p>
+<p>它就跑了。</p>
+<p class="caption">【配图：2026年3月7日，蘸蘸在三楼折叠床上的照片】</p>
+      </section>
+      <section class="image-page" id="page-146" aria-label="第 146 页图片">
+        <div class="page-no">第 146 页</div>
+        <img src="pages/page-146.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 146 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-147" aria-label="第 147 页图片">
+        <div class="page-no">第 147 页</div>
+        <img src="pages/page-147.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 147 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-148" aria-label="第 148 页图片">
+        <div class="page-no">第 148 页</div>
+        <img src="pages/page-148.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 148 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-149" aria-label="第 149 页图片">
+        <div class="page-no">第 149 页</div>
+        <img src="pages/page-149.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 149 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-150" aria-label="第 150 页图片">
+        <div class="page-no">第 150 页</div>
+        <img src="pages/page-150.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 150 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="image-page" id="page-151" aria-label="第 151 页图片">
+        <div class="page-no">第 151 页</div>
+        <img src="pages/page-151.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 151 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-152" aria-label="第 152 页图片">
+        <div class="page-no">第 152 页</div>
+        <img src="pages/page-152.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 152 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-153" aria-label="第 153 页图片">
+        <div class="page-no">第 153 页</div>
+        <img src="pages/page-153.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 153 页" loading="lazy" decoding="async" width="1518" height="1157">
+      </section>
+      <section class="image-page" id="page-154" aria-label="第 154 页图片">
+        <div class="page-no">第 154 页</div>
+        <img src="pages/page-154.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 154 页" loading="lazy" decoding="async" width="1517" height="1156">
+      </section>
+      <section class="text-page" id="page-155" aria-label="第 155 页文字">
+        <div class="page-no">第 155 页</div>
+        <p>那时候我没有想太多。</p>
+<p>现在回头看，它不是不想进来。</p>
+<p>它是想进来，又知道自己不被允许。</p>
+<p>它小心翼翼。</p>
+<p>它怕我。</p>
+<p>因为在它的记忆里，它进来，我会不高兴。</p>
+<p>我不高兴，它就会被关回小黑屋。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>十八、4月，它又尿闭了</h3>
+<p>2026年4月5日，蘸蘸又尿闭了。</p>
+<p>它自己跑到一个很远的小竹林里。</p>
+<p>定位不准，我找了很久，才找到它。</p>
+      </section>
+      <section class="text-page" id="page-156" aria-label="第 156 页文字">
+        <div class="page-no">第 156 页</div>
+        <p class="caption">【配图：2026年4月5日，蘸蘸在竹林里】</p>
+      </section>
+      <section class="text-page" id="page-157" aria-label="第 157 页文字">
+        <div class="page-no">第 157 页</div>
+        <p>4月6日，我换了一家小宠物医院，给它导尿。</p>
+<p>那家医院不干净，也不能住院。</p>
+      </section>
+      <section class="text-page" id="page-158" aria-label="第 158 页文字">
+        <div class="page-no">第 158 页</div>
+        <p>我把它带回来，让它睡在铁笼子里，身上插着导尿管，关在小黑屋三天。</p>
+<p>三天后，我自己亲手给它拆线，拔管子。</p>
+<p>那时候我还是乐观的。</p>
+<p class="caption">【配图：2026年4月6日，蘸蘸在笼子里】</p>
+<p>4月7日，我喂它的时候，它咬到了我的手。</p>
+<p>我只能和别人说是被花草刺的</p>
+<p>那不是它坏。</p>
+<p>那是它痛、害怕、被限制以后，少数能做出的反抗。</p>
+<p>4月11日，我随手拍它。</p>
+<p>它已经瘦很多了。</p>
+      </section>
+      <section class="text-page" id="page-159" aria-label="第 159 页文字">
+        <div class="page-no">第 159 页</div>
+        <p class="caption">【配图：2026年4月11日，蘸蘸明显变瘦的照片】</p>
+      </section>
+      <section class="text-page" id="page-160" aria-label="第 160 页文字">
+        <div class="page-no">第 160 页</div>
+        <p>四月五日以后，我其实已经知道它越来越轻了</p>
+<p>四月五日以后，我不是完全没有发现问题。</p>
+      </section>
+      <section class="text-page" id="page-161" aria-label="第 161 页文字">
+        <div class="page-no">第 161 页</div>
+        <p>以前蘸蘸也在慢慢变瘦。</p>
+<p>可后来已经不是慢慢变瘦了。</p>
+<p>而是明显地轻。</p>
+<p>抱起它的时候轻。</p>
+<p>摸到它的时候轻。</p>
+<p>那种感觉骗不了人。</p>
+<p>我知道它越来越轻。</p>
+<p>我知道它越来越瘦。</p>
+<p>我知道它越来越不像以前。</p>
+<p>可我还是一次次告诉自己。</p>
+<p>再看看。</p>
+<p>再等等。</p>
+<p>还有时间。</p>
+<p>现在回头看。</p>
+<p>四月五日以后那段时间，反而是我最难面对的。</p>
+<p>因为我已经感觉到警告了。</p>
+<p>却没有真正把它当成最后的警告。</p>
+<p>我现在看照片，能看出来。</p>
+<p>但当时我没有真正看懂。</p>
+<p>4月18日，它又跑上三楼。</p>
+<p>它很小心翼翼。</p>
+<p>我咳一声，它就跑了。</p>
+<p>现在想起来，那不是普通的害怕。</p>
+      </section>
+      <section class="text-page" id="page-162" aria-label="第 162 页文字">
+        <div class="page-no">第 162 页</div>
+        <p>那是它已经学会了：</p>
+<p>这里不是我可以随便来的地方。</p>
+<p class="caption">【配图：2026年4月18日，蘸蘸小心翼翼】</p>
+      </section>
+      <section class="image-page" id="page-163" aria-label="第 163 页图片">
+        <div class="page-no">第 163 页</div>
+        <img src="pages/page-163.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 163 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-164" aria-label="第 164 页图片">
+        <div class="page-no">第 164 页</div>
+        <img src="pages/page-164.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 164 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-165" aria-label="第 165 页图片">
+        <div class="page-no">第 165 页</div>
+        <img src="pages/page-165.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 165 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-166" aria-label="第 166 页图片">
+        <div class="page-no">第 166 页</div>
+        <img src="pages/page-166.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 166 页" loading="lazy" decoding="async" width="1518" height="2088">
+      </section>
+      <section class="text-page" id="page-167" aria-label="第 167 页文字">
+        <div class="page-no">第 167 页</div>
+        <h3>十九、最后悠闲的样子</h3>
+<p>2026年5月1日，我拍了蘸蘸最后两张悠闲的照片。</p>
+<p>它躺着，晒着光，看起来还是它自己。</p>
+<p class="caption">【配图：2026年5月1日，蘸蘸最后两张悠闲照片】</p>
+      </section>
+      <section class="image-page" id="page-168" aria-label="第 168 页图片">
+        <div class="page-no">第 168 页</div>
+        <img src="pages/page-168.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 168 页" loading="lazy" decoding="async" width="1517" height="1998">
+      </section>
+      <section class="text-page" id="page-169" aria-label="第 169 页文字">
+        <div class="page-no">第 169 页</div>
+        <p>我以为日子还会一样过。</p>
+<p>它还会接我。</p>
+<p>还会吃东⻄。</p>
+<p>还会躺在楼下。</p>
+<p>还会在我回来时出现。</p>
+<p>可是那已经是最后看起来还正常的日子了。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十、最后的恶化</h3>
+<p>5月下旬，蘸蘸开始吐，不吃，只喝水。</p>
+<p>我不知道它怎么了。</p>
+<p>它以前喜欢吃草，我也⻅过它吃老鼠。</p>
+      </section>
+      <section class="text-page" id="page-170" aria-label="第 170 页文字">
+        <div class="page-no">第 170 页</div>
+        <p>雨季里外面还有蘑菇。</p>
+<p>我不知道它是不是吃了不干净的东⻄。</p>
+<p>我在二楼沙发下面找到它。</p>
+<p>我叫它，它没有出声，只是晃了一下头。</p>
+<p>我很难受。</p>
+<p>我说：</p>
+<p>你别死，我一定会救你的。</p>
+<p>后来我带它去小宠物医院，打消炎针、止吐针，挂葡萄糖。</p>
+<p>它打着留置针，戴着头套，关在铁笼子里，铁笼子又在小黑屋里。</p>
+<p>那三天，是它的噩梦，也是我的噩梦。</p>
+<p class="caption">【配图：2026年5月29日，蘸蘸手上剃毛、留置针位置】</p>
+      </section>
+      <section class="text-page" id="page-171" aria-label="第 171 页文字">
+        <div class="page-no">第 171 页</div>
+        <p>6月2日，我又带它去打疫苗。</p>
+<p>那是一家环境不错的医院，设备也全，没有异味，价格甚至比之前那家破烂宠物医院便宜。</p>
+      </section>
+      <section class="text-page" id="page-172" aria-label="第 172 页文字">
+        <div class="page-no">第 172 页</div>
+        <p>医生问我：</p>
+<p>正常吗？</p>
+<p>我说：</p>
+<p>正常，刚恢复，打吧。</p>
+<p>我没有想到要做检查。</p>
+<p>我现在很清楚，我当时真的没有想到。</p>
+<p class="caption">【配图：2026年6月2日，蘸蘸最后的医院照片、疫苗照片】</p>
+      </section>
+      <section class="image-page" id="page-173" aria-label="第 173 页图片">
+        <div class="page-no">第 173 页</div>
+        <img src="pages/page-173.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 173 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="text-page" id="page-174" aria-label="第 174 页文字">
+        <div class="page-no">第 174 页</div>
+        <p>这就是我后来最痛的地方之一。</p>
+<p>机会在眼前。</p>
+<p>但我没看⻅。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十一、最后的雨季和小黑屋</h3>
+<p>打完疫苗后，一直下雨。</p>
+<p>我一直把蘸蘸关在小黑屋里。</p>
+<p>那个小黑屋会漏水。</p>
+<p>水会沿着墙壁流下来，地上很湿。</p>
+<p>它上厕所会乱尿，猫砂盆旁边有尿。</p>
+<p>它动作大，会把猫砂带得到处都是。</p>
+      </section>
+      <section class="text-page" id="page-175" aria-label="第 175 页文字">
+        <div class="page-no">第 175 页</div>
+        <p>猫砂和水混在一起，滑溜溜的。</p>
+<p>蚊子又很多。</p>
+<p>它就在这样的环境里，被关了很多天。</p>
+<p>我每次铲屎会清扫。</p>
+<p>可是环境本身还是潮湿、脏、闷、有蚊子。</p>
+<p>这不是“没有最好”。</p>
+<p>这是很差。</p>
+<p>这是我不能替自己开脱的地方。</p>
+<p>很⻓一段时间里，它的活动范围都被我限制得很小。</p>
+<p>在小黑屋中。</p>
+<p>2025年3月15日以前，它几乎一直被关着。</p>
+<p>后来即使有放⻛，也不是它真正自由地生活，而是我给它一点时间，再把它抓回来。</p>
+<p>2025年6月以前，它更多只是白天可以出来。</p>
+<p>到了2025年6月以后，只要我看到它跳到邻居⻋上，害怕它跑远，害怕它出事，还是会把它抓回小</p>
+<p>黑屋。</p>
+<p>到最后那些天，它几乎又一直被关在那里。</p>
+<p>我以前会觉得，我不是完全没管它。</p>
+<p>我有喂它。</p>
+<p>有给它水。</p>
+<p>有给它猫砂。</p>
+<p>有清理。</p>
+<p>可现在回头看，这些不能抵消另一件事实：</p>
+<p>它的生活被我安排得太窄了。</p>
+      </section>
+      <section class="text-page" id="page-176" aria-label="第 176 页文字">
+        <div class="page-no">第 176 页</div>
+        <p>小黑屋漏水，潮湿，闷，有湿猫砂，有蚊子。</p>
+<p>它在里面待了很久。</p>
+<p>我每次清理的时候，会觉得自己已经做了事。</p>
+<p>但我没有真正改变它的处境。</p>
+<p>我是在一个很差的环境里，做一些补救。</p>
+<p>那些补救是真的。</p>
+<p>那个环境很差，也是真的。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十二、最后几天</h3>
+<p>从10号开始，蘸蘸可能就没怎么吃了。</p>
+<p>期间它有尿红。</p>
+<p>我换了别的猫粮给它。</p>
+<p>我给它清理猫砂和地上的泥时，正常都是用之前那个牵引绳绑着它。</p>
+<p>它一直叫。</p>
+<p>我说：</p>
+<p>要死就死去，永远别回来。</p>
+<p>我感觉自己当时拍得不重，就是正常拍打它尾巴前面的背部。</p>
+<p>然后我给它解开。</p>
+<p>它一下就跑到隔壁家。</p>
+<p>当天我没有找它，只放了猫粮。</p>
+<p>第二天，它回来了。</p>
+<p>我看到猫粮没了，以为是它吃了。</p>
+<p>现在我几乎肯定，那应该是前面说的流浪猫吃的。</p>
+      </section>
+      <section class="text-page" id="page-177" aria-label="第 177 页文字">
+        <div class="page-no">第 177 页</div>
+        <p>所以它从10号开始，可能就没吃了，或者说吃得很少。</p>
+<p>11号，它吃很少，喝了水。</p>
+<p>12号，它不吃。</p>
+<p>我喂了它一个鸡蛋⻩。</p>
+<p>因为它之前吃过蛋⻩，我以为这次也许也会吃。</p>
+<p>我又加了一些它平时吃习惯的猫粮。</p>
+<p>那天我给了它一点自由。</p>
+<p>它也来接我回家了。</p>
+<p>那是最后一次。</p>
+<p>然后它又被关回小黑屋。</p>
+<p>13号，它没吃。</p>
+<p>我喂了一点水，还有维生素。</p>
+<p>14号，我开始喂葡萄糖。</p>
+<p>它越狱了，跑到隔壁平房上。</p>
+<p>晚上它回过小黑屋上厕所。</p>
+<p>那一天，我几乎没有⻅到它。</p>
+<p>我在小黑屋旁边叫它名字。</p>
+<p>它回来了。</p>
+<p>它沿着屋檐跳到狗窝上面。</p>
+<p>15号，我喂了一天葡萄糖。</p>
+<p>早上10毫升，中午10毫升。</p>
+<p>但每次我一打开小黑屋的⻔，它都会立⻢从小黑屋里的小窝钻出来。</p>
+<p>晚上，蘸蘸跑到三楼来了。</p>
+      </section>
+      <section class="text-page" id="page-178" aria-label="第 178 页文字">
+        <div class="page-no">第 178 页</div>
+        <p>它跑到我午睡的折叠床旁边，坐在那里，后来躺下。</p>
+<p>我摸了它三十分钟。</p>
+<p>它摇尾巴。</p>
+<p>那可能是它最后一次在三楼待得比较久。</p>
+<p>后来我开始喂它葡萄糖。</p>
+<p>喂了十毫升，它跑了。</p>
+<p>它走到楼梯那里，蹭了一下。</p>
+<p>那个蹭楼梯的样子，我忘不掉。</p>
+<p>它像是在那里停了一下。</p>
+<p>像是在和三楼，和我，和那个它曾经住过、后来又不能真正回去的地方，做最后一点联系。</p>
+<p>我⻅它不走，就拎着它，把它关回小黑屋。</p>
+<p>它很轻。</p>
+<p>那天我买了一个新猫窝。</p>
+<p>我想着，这次之后，不管怎么样，都要让蘸蘸回到三楼。</p>
+<p>那个猫窝也是它以前喜欢的室外猫窝。</p>
+<p>只是以前那个已经发霉了。</p>
+<p>前两天，它也去睡过。</p>
+<p>可是没有之后了。</p>
+<p>蘸蘸没有等到那个猫窝。</p>
+<p>也没有等到我真正把它接回来。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十三、6月16日，最后一天</h3>
+      </section>
+      <section class="text-page" id="page-179" aria-label="第 179 页文字">
+        <div class="page-no">第 179 页</div>
+        <p>6月16日，蘸蘸已经很虚弱了。</p>
+<p>那天它很想去防水的小窝。</p>
+<p>它用力抓着里面的小猫窝，想进去。</p>
+<p>我没有让它去。</p>
+<p>我松开了它的爪子。</p>
+<p>那时候我没有真正明白，这可能是它最后想去的地方之一。</p>
+<p>我只是还在按照原来的习惯控制它。</p>
+<p>早上，我喂了它葡萄糖。</p>
+<p>中午，我又喂了一次。</p>
+<p>晚上，我也喂了。</p>
+<p>可是猫粮一直没有动。</p>
+<p>它不吃猫粮。</p>
+<p>其实我喜欢摸蘸蘸的下巴。</p>
+<p>喜欢摸它的头。</p>
+<p>喜欢拍尾巴前面的背。</p>
+<p>喜欢摸它的肚子。</p>
+<p>有时候还会把它人立起来，和它交换鼻息。</p>
+<p>这些事情以前觉得很普通。</p>
+<p>后来才发现。</p>
+<p>那其实已经是我们之间最亲近的时刻。</p>
+<p>我一直说自己没有抱过它。</p>
+<p>这是真的。</p>
+<p>可我也不是完全没有亲近过它。</p>
+      </section>
+      <section class="text-page" id="page-180" aria-label="第 180 页文字">
+        <div class="page-no">第 180 页</div>
+        <p>十五号晚上，它跑到三楼。</p>
+<p>躺在折叠床旁边。</p>
+<p>我摸了它很久。</p>
+<p>大概三十分钟。</p>
+<p>那时候我不知道。</p>
+<p>那可能已经是最后一次。</p>
+<p>如果我知道。</p>
+<p>我一定会抱抱它。</p>
+<p>一定会陪它更久一点。</p>
+<p>可是那时候的我以为还有明天。</p>
+<p>这时，冻干到了。</p>
+<p>那个冻干本来就是我给蘸蘸买的。</p>
+<p>不是随手拿出来的东⻄。</p>
+<p>是我想让它吃点东⻄，想让它再有一点⻝欲，所以买给它的。</p>
+<p>我把原来的猫粮倒给隔壁家的狗。</p>
+<p>然后拿出冻干。</p>
+<p>它闻到以后，开始吃了。</p>
+<p>它甚至过来抢，差点咬到我的手。</p>
+<p>我把冻干放进碗里，它过去吃。</p>
+<p>那一刻，我以为它是不是还可以。</p>
+<p>它还会抢。</p>
+<p>还会吃。</p>
+      </section>
+      <section class="text-page" id="page-181" aria-label="第 181 页文字">
+        <div class="page-no">第 181 页</div>
+        <p>还会有一点力气。</p>
+<p>我以为这是不是说明它还有希望。</p>
+<p>那时大概是晚上7点。</p>
+<p>冻干是我亲手喂的。</p>
+<p>也是我专⻔买给它的。</p>
+<p>可后来，它变成了蘸蘸最后愿意吃的东⻄。</p>
+<p>然后我又关上了小黑屋的⻔。</p>
+<p>我出⻔了。</p>
+<p>晚上12点左右，我回到家。</p>
+<p>我煮了一碗泡面。</p>
+<p>泡面放在旁边，还没怎么吃。</p>
+<p>凌晨1点左右，我想下楼看看蘸蘸，想再给它喂一点葡萄糖。</p>
+<p>我走到小黑屋⻔口。</p>
+<p>正常情况下，只要我一打开⻔，它就会从里面钻出来。</p>
+<p>这已经是我太熟悉的画面。</p>
+<p>那个开⻔就会出现的蘸蘸。</p>
+<p>那个听到声音就从小窝里钻出来的蘸蘸。</p>
+<p>那个每次我开⻔，就想往外走的蘸蘸。</p>
+<p>那天没有出现。</p>
+<p>我先把⻔开了一条缝。</p>
+<p>没有动静。</p>
+<p>我叫了一声：</p>
+<p>蘸蘸。</p>
+      </section>
+      <section class="text-page" id="page-182" aria-label="第 182 页文字">
+        <div class="page-no">第 182 页</div>
+        <p>还是没有。</p>
+<p>然后我把⻔整个推开。</p>
+<p>我看到蘸蘸躺在猫砂盆里。</p>
+<p>我一摸，它已经出现了尸僵。</p>
+<p>那一刻，我才知道，一切已经来不及了。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十四、之后</h3>
+<p>我拿湿纸巾擦掉蘸蘸嘴里的猫砂。</p>
+<p>擦干净它的身体。</p>
+<p>我坐在旁边，吃那碗泡面。</p>
+<p>一边吃，一边哭。</p>
+<p>我一直想：</p>
+<p>怎么会这样。</p>
+<p>明明几个小时前，它还吃了冻干。</p>
+<p>明明它还过来抢。</p>
+<p>明明它差点咬到我的手。</p>
+<p>明明我以为它还有一点希望。</p>
+<p>可是现在它已经躺在那里，不会再出来了。</p>
+<p>后来我坐在它旁边，给它赶蚊子</p>
+<p>一直坐到天亮。</p>
+<p>天亮以后，我把它埋在自己家的竹林里。</p>
+<p>我把它的小窝也带上了。</p>
+      </section>
+      <section class="text-page" id="page-183" aria-label="第 183 页文字">
+        <div class="page-no">第 183 页</div>
+        <p>那个小窝，是小黑屋里面的。</p>
+<p>小黑屋很糟糕。</p>
+<p>漏水，潮湿，有尿味，有湿猫砂，有蚊子。</p>
+<p>但那个小窝，至少是里面唯一一点温暖。</p>
+<p>我把它带走，像是想把那一点温暖也还给它。</p>
+<p class="caption">【配图：2026年6月17日竹林、埋葬位置、小夜灯】</p>
+      </section>
+      <section class="image-page" id="page-184" aria-label="第 184 页图片">
+        <div class="page-no">第 184 页</div>
+        <img src="pages/page-184.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 184 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-185" aria-label="第 185 页图片">
+        <div class="page-no">第 185 页</div>
+        <img src="pages/page-185.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 185 页" loading="lazy" decoding="async" width="1518" height="2000">
+      </section>
+      <section class="image-page" id="page-186" aria-label="第 186 页图片">
+        <div class="page-no">第 186 页</div>
+        <img src="pages/page-186.webp" alt="蘸蘸：一只从三楼监狱开始的猫 第 186 页" loading="lazy" decoding="async" width="1241" height="2258">
+      </section>
+      <section class="text-page" id="page-187" aria-label="第 187 页文字">
+        <div class="page-no">第 187 页</div>
+        <p>蘸蘸最后没有回到三楼。</p>
+<p>没有睡到我给它新买的猫窝。</p>
+      </section>
+      <section class="text-page" id="page-188" aria-label="第 188 页文字">
+        <div class="page-no">第 188 页</div>
+        <p>没有等到我真正下定决心说：</p>
+<p>以后不管怎么样，你都回来吧。</p>
+<p>它没有等到。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十五、死后两天，我才知道它最后可能有多痛</h3>
+<p>那天晚上，我只知道蘸蘸走了。</p>
+<p>我知道我开⻔时，它没有出来。</p>
+<p>我知道我叫它，它没有回应。</p>
+<p>我知道我摸到它时，已经有尸僵。</p>
+<p>可是死后两天，我才知道另一件事。</p>
+<p>我才听到别人告诉我，尸僵不是死亡那一刻⻢上就出现的。</p>
+<p>也就是说，蘸蘸可能不是我凌晨1点发现它的时候才走。</p>
+<p>它可能更早就已经走了。</p>
+<p>也许是11点左右。</p>
+<p>我不知道这个时间能不能完全准确。</p>
+<p>但这个推算，让我那时候才真正意识到：</p>
+<p>从晚上7点我喂它冻干、把它关进小黑屋，到它可能离开的11点，中间大概有四个小时。</p>
+<p>这四个小时，蘸蘸承受了什么？</p>
+<p>我那时才开始真正想这件事。</p>
+<p>那时候它在小黑屋里。</p>
+<p>地上是湿的。</p>
+<p>水沿着墙壁流下来。</p>
+<p>猫砂和水混在一起，变得滑溜溜的。</p>
+      </section>
+      <section class="text-page" id="page-189" aria-label="第 189 页文字">
+        <div class="page-no">第 189 页</div>
+        <p>猫砂也带着一点湿。</p>
+<p>旁边可能还有尿。</p>
+<p>蚊子很多。</p>
+<p>空气闷。</p>
+<p>它很虚弱。</p>
+<p>它不吃猫粮。</p>
+<p>它可能还想出来。</p>
+<p>可能还想去那个防水的小窝。</p>
+<p>可能还想上三楼。</p>
+<p>可能还在等我开⻔。</p>
+<p>也可能已经疼到没有力气站起来。</p>
+<p>我听到别人说，那样的痛可能是四级的痛。</p>
+<p>我不知道这个说法是不是能完全准确地描述它。</p>
+<p>可是我一听到“四级的痛”，一想到它可能是在那样的环境里痛着走的，我就控制不住流眼泪。</p>
+<p>我不是那时候才开始后悔。</p>
+<p>我早就后悔了。</p>
+<p>但那一点，是新的痛。</p>
+<p>以前我以为，我只是错过了它最后一刻。</p>
+<p>死后两天，我才知道，我可能错过的是它最后最痛的几个小时。</p>
+<p>那四个小时，我不在。</p>
+<p>⻔是我关上的。</p>
+<p>冻干是我喂的。</p>
+      </section>
+      <section class="text-page" id="page-190" aria-label="第 190 页文字">
+        <div class="page-no">第 190 页</div>
+        <p>小黑屋是我让它待的。</p>
+<p>它可能在里面疼着，撑着，等着，最后倒在猫砂盆里。</p>
+<p>我那时候才知道，蘸蘸最后可能有多痛。</p>
+<p>这不是我当时知道却装不知道。</p>
+<p>不是。</p>
+<p>是我后来才知道。</p>
+<p>可正因为是后来才知道，所以它更痛。</p>
+<p>因为我再也没有办法回到那天晚上7点，把那扇⻔打开。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十六、我今天才明白，我是它的主人</h3>
+<p>我今天才真正明白一件事。</p>
+<p>我是蘸蘸的主人。</p>
+<p>可是在我的记忆里，很⻓一段时间，我更像它的饲养者。</p>
+<p>饲养者会喂饭。</p>
+<p>会给水。</p>
+<p>会铲屎。</p>
+<p>会找猫。</p>
+<p>会带它去医院。</p>
+<p>会给它买窝。</p>
+<p>会给它买定位器。</p>
+<p>这些我都做过。</p>
+<p>所以以前我也可以告诉自己：</p>
+<p>我没有不管它。</p>
+      </section>
+      <section class="text-page" id="page-191" aria-label="第 191 页文字">
+        <div class="page-no">第 191 页</div>
+        <p>可是主人不是这样。</p>
+<p>主人不是只让一只猫活着。</p>
+<p>主人要承认，它的痛和我有关。</p>
+<p>它的病和我有关。</p>
+<p>它的自由和我有关。</p>
+<p>它想不想进小黑屋，也和我有关。</p>
+<p>它活着的时候，早就把我当成它的人。</p>
+<p>它接我。</p>
+<p>等我。</p>
+<p>找我。</p>
+<p>听我的声音。</p>
+<p>听⻅我敲洗衣板就跳上来。</p>
+<p>听⻅我回来就出现。</p>
+<p>可我很⻓时间里，只把自己当成它的饲养者。</p>
+<p>直到它死了。</p>
+<p>直到我打开小黑屋的⻔，看到它没有出来。</p>
+<p>直到我摸到它已经僵了。</p>
+<p>直到我把它埋进竹林。</p>
+<p>直到我一遍一遍回想它这一生。</p>
+<p>我才真正承认：</p>
+<p>它是我的猫。</p>
+<p>我是它的主人。</p>
+      </section>
+      <section class="text-page" id="page-192" aria-label="第 192 页文字">
+        <div class="page-no">第 192 页</div>
+        <p>只是我承认得太晚了。</p>
+<p>如果我早一点承认我是它的主人，我就不能只是随便喂一下。</p>
+<p>不能只是给它一个地方待着。</p>
+<p>不能只是让它活着。</p>
+<p>我应该更早面对它的病。</p>
+<p>更早面对它的痛。</p>
+<p>更早面对它想出来、想靠近、想回家的事实。</p>
+<p>可是我是在蘸蘸死后，才真正明白我是它的主人。</p>
+<p>这就是最晚、也最没有办法弥补的明白。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十七、那些本来可能改变结局的地方</h3>
+<p>我自己看这段故事，也会很难受。</p>
+<p>因为这些不是虚构。</p>
+<p>不是为了写得痛苦才加进去的东⻄。</p>
+<p>这些都是确确实实发生过的事情。</p>
+<p>冻干是我亲手喂给蘸蘸的。</p>
+<p>那是它最后愿意吃的东⻄。</p>
+<p>我不能把这件事从故事里拿掉。</p>
+<p>我也不能把小黑屋从故事里拿掉。</p>
+<p>不能把漏水、湿猫砂、蚊子、尿味拿掉。</p>
+<p>不能把它最后几天一直被关在那里拿掉。</p>
+<p>因为那就是它最后经历的生活。</p>
+<p>我也不能把宠物医院的问题拿掉。</p>
+      </section>
+      <section class="text-page" id="page-193" aria-label="第 193 页文字">
+        <div class="page-no">第 193 页</div>
+        <p>第一家宠物医院，检查出了它肾里类似多囊肾的气泡，却没有真正把后续慢病管理讲清楚。</p>
+<p>没有认真告诉我，它以后不能再按普通猫来喂。</p>
+<p>没有告诉我普通猫粮、高蛋白⻝物可能已经不适合它。</p>
+<p>没有明确告诉我，肾益生菌不能代替肾猫粮，不能代替饮⻝管理，也不能代替⻓期复查。</p>
+<p>那家医院更多让我看到的是尿道改造手术、抽液体手术，还有一瓶三百多元的所谓肾益生菌。</p>
+<p>我买了。</p>
+<p>我不是不愿意花钱。</p>
+<p>但我没有得到最关键的提醒。</p>
+<p>如果那时候我知道该换肾猫粮，如果那时候它从10月开始就被当成一只肾病猫来管理，也许它会好</p>
+<p>很多。</p>
+<p>也许它可以多活一年、两年，甚至三年。</p>
+<p>我不知道。</p>
+<p>但我会一直想这件事。</p>
+<p>第二家小宠物医院也让我遗憾。</p>
+<p>那家医院很小，很脏，处理也很敷衍。</p>
+<p>它给它打针，挂葡萄糖，卖很贵实际很便宜猫粮和药。</p>
+<p>我现在回头看，会觉得它更像是在拖着、续着，而不是认真判断它到底还有没有生活质量。</p>
+<p>如果那时候有人认真告诉我，它已经很痛苦了，已经不是简单输液就能解决了，也许我会做出另一</p>
+<p>个选择。</p>
+<p>也许我会带它去更好的医院。</p>
+<p>也许我会选择安乐。</p>
+<p>至少，也许它不会在最后那样的小黑屋里承受那么多痛。</p>
+<p>可是没有如果。</p>
+      </section>
+      <section class="text-page" id="page-194" aria-label="第 194 页文字">
+        <div class="page-no">第 194 页</div>
+        <p>第二家医院给它续出来的那些时间，大部分也还是在小黑屋里度过的。</p>
+<p>它被输液、戴头套、关笼子、关小黑屋。</p>
+<p>我以为那是在救它。</p>
+<p>可现在回头看，那里面有救，也有拖。</p>
+<p>有希望，也有痛苦。</p>
+<p>而最后承受这些的，是它。</p>
+<p>我写这些，不是为了把责任推给医院。</p>
+<p>第一家宠物医院有诊疗缺失。</p>
+<p>第二家小宠物医院有敷衍和拖延。</p>
+<p>这些都是我现在看到的事实。</p>
+<p>但最大的责任，还是我自己。</p>
+<p>因为蘸蘸是我的猫。</p>
+<p>最后选择哪家医院的人是我。</p>
+<p>没有继续追问的人是我。</p>
+<p>没有及时换更好的医院的人是我。</p>
+<p>没有做出正确判断的人也是我。</p>
+<p>我没有早点明白，它不是普通地生病了。</p>
+<p>它是在慢慢被拖向最后。</p>
+<p>我对不起它。</p>
+<p>我对不起蘸蘸。</p>
+<div class="rule" aria-hidden="true"></div>
+<h3>二十八、我写这些，不是为了被原谅</h3>
+<p>我写这些，不是为了让别人原谅我。</p>
+      </section>
+      <section class="text-page" id="page-195" aria-label="第 195 页文字">
+        <div class="page-no">第 195 页</div>
+        <p>如果有人骂我，我接受。</p>
+<p>因为很多事情确实是我做错了。</p>
+<p>我没有早一点抱它。</p>
+<p>没有早一点让它回家。</p>
+<p>没有早一点理解它的病。</p>
+<p>没有早一点换掉它不适合的生活方式。</p>
+<p>没有早一点带它做更完整的检查。</p>
+<p>没有在最后几天给它一个干净、温暖、自由的地方。</p>
+<p>这些都是真的。</p>
+<p>我现在写下这些，也不是为了把责任推给医院，不是为了把责任推给我的强迫规则，也不是为了说</p>
+<p>我只是无知。</p>
+<p>医院没有讲清楚，是事实。</p>
+<p>我害怕脏，是事实。</p>
+<p>我当时很多事情不知道，也是事实。</p>
+<p>但最后，蘸蘸是在我的安排里生活的。</p>
+<p>⻔是我关上的。</p>
+<p>小黑屋是我让它待的。</p>
+<p>水是我给的。</p>
+<p>粮是我喂的。</p>
+<p>医院是我选的。</p>
+<p>检查是我没有继续做的。</p>
+<p>它一次次想出来，是我一次次把它抓回去的。</p>
+<p>所以我不能说，我只是一个什么都不知道的人。</p>
+      </section>
+      <section class="text-page" id="page-196" aria-label="第 196 页文字">
+        <div class="page-no">第 196 页</div>
+        <p>我是不知道。</p>
+<p>但我也是它的主人。</p>
+<p>这两件事要一起写下来。</p>
+<p>少写哪一边，都是在骗自己。</p>
+<p>但我也想把蘸蘸写下来。</p>
+<p>因为蘸蘸不是一只“随便喂一下”的猫。</p>
+<p>它叫蘸蘸。</p>
+<p>它在三楼住过两年。</p>
+<p>它在小黑屋里待过。</p>
+<p>它尿过血。</p>
+<p>尿闭过。</p>
+<p>查出过肾里的气泡。</p>
+<p>它跳过我的⻋。</p>
+<p>听过我的“啧啧”声。</p>
+<p>跟着我走进一楼。</p>
+<p>躺过那个破旧的小纸盒。</p>
+<p>睡过我给它做的小窝。</p>
+<p>踩过那个会发出“咯噔”声的井盖。</p>
+<p>跳上过我敲响的洗衣板。</p>
+<p>它有过隔壁的狗。</p>
+<p>有过楼下的流浪猫。</p>
+<p>有过露天小窝。</p>
+      </section>
+      <section class="text-page" id="page-197" aria-label="第 197 页文字">
+        <div class="page-no">第 197 页</div>
+        <p>有过防水小窝。</p>
+<p>有过它喜欢的自由。</p>
+<p>也有过我给它的限制。</p>
+<p>它最后吃了我喂的冻干。</p>
+<p>最后没有从⻔后钻出来。</p>
+<p>最后躺在猫砂盆里。</p>
+<p>最后被我擦掉嘴里的猫砂。</p>
+<p>最后被我埋在竹林里。</p>
+<p>我现在知道了。</p>
+<p>它的痛，不只是它死了。</p>
+<p>而是它明明早就在我的生活里，可我一直没有真正承认它的位置。</p>
+<p>它不是麻烦。</p>
+<p>不是脏。</p>
+<p>不是楼下那只猫。</p>
+<p>不是小黑屋里的猫。</p>
+<p>不是随便喂一下的猫。</p>
+<p>它是蘸蘸。</p>
+<p>它爱过我。</p>
+<p>我也爱它。</p>
+<p>只是我明白得太晚了。</p>
+<p>这是我付出的代价。</p>
+<p>也是它替我付出的代价。</p>
+<div class="rule" aria-hidden="true"></div>
+      </section>
+      <section class="text-page" id="page-198" aria-label="第 198 页文字">
+        <div class="page-no">第 198 页</div>
+        <h3>二十九、给蘸蘸</h3>
+<p>蘸蘸，对不起。</p>
+<p>我现在知道了。</p>
+<p>我知道你不是普通地来接我。</p>
+<p>你是在等我。</p>
+<p>我知道你听⻅我的“啧啧”声，会跟着我走进一楼。</p>
+<p>我知道你躺在破旧纸盒里的时候，也许以为那就是回家。</p>
+<p>我知道你听⻅我敲洗衣板，会跳上来。</p>
+<p>我知道你踩过那个会“咯噔”一声响的井盖。</p>
+<p>我知道你跑上三楼，不是捣乱。</p>
+<p>你只是想回到一个你熟悉过的地方。</p>
+<p>我知道你最后蹭楼梯的时候，也许是在和那个地方告别。</p>
+<p>我知道你最后想去防水小窝。</p>
+<p>我知道你最后开⻔没有出来。</p>
+<p>我知道我明白得太晚。</p>
+<p>我以后不会再养猫了。</p>
+<p>养猫不是随便喂一下。</p>
+<p>养猫是一辈子的约定。</p>
+<p>是在它脏了、病了、老了、麻烦了、需要你改变生活的时候，还要把它当成家人。</p>
+<p>我是在没有真正准备好的时候接住了你。</p>
+<p>然后又没有完全接住你。</p>
+<p>如果这个故事能留下什么，我希望至少留下你。</p>
+      </section>
+      <section class="text-page" id="page-199" aria-label="第 199 页文字">
+        <div class="page-no">第 199 页</div>
+        <p>留下你刚来三楼时害怕的样子。</p>
+<p>留下你在三楼地板上打滚的样子。</p>
+<p>留下你被我放到楼下以后，还是每天接我回家的样子。</p>
+<p>留下你小心翼翼跑进三楼，又因为我咳一声逃走的样子。</p>
+<p>留下你踩井盖时那一声“咯噔”。</p>
+<p>留下你听⻅我敲洗衣板，就跳上来吃东⻄的样子。</p>
+<p>留下你最后一次躺在折叠床边，让我摸了三十分钟的样子。</p>
+<p>留下你最后蹭楼梯的样子。</p>
+<p>留下你最后吃冻干的样子。</p>
+<p>留下你在竹林里睡下的样子。</p>
+<p>蘸蘸，对不起。</p>
+<p>我现在知道了。</p>
+<p>你爱过我。</p>
+<p>我也爱你。</p>
+<p>只是我明白得太晚了。</p>
+<p>梦里它回来过(后记)</p>
+<p>头七前。</p>
+<p>很久没睡。</p>
+<p>24小时没吃。</p>
+<p>是晕过去的。</p>
+<p>我做梦了。</p>
+<p>我梦⻅了蘸蘸。</p>
+<p>梦里有很多很多欢快的记忆。</p>
+      </section>
+      <section class="text-page" id="page-200" aria-label="第 200 页文字">
+        <div class="page-no">第 200 页</div>
+        <p>具体发生了什么，我已经记不清了。</p>
+<p>醒来的时候，那些画面一下子散掉了。</p>
+<p>我只记得。</p>
+<p>梦里的蘸蘸是活着的。</p>
+<p>是快乐的。</p>
+<p>然后梦里的我忽然意识到。</p>
+<p>它已经死了。</p>
+<p>那一瞬间，我从梦里惊醒。</p>
+<p>后来那些画面再也想不起来。</p>
+<p>只剩下一种感觉。</p>
+<p>原来我连在梦里失去它一次，都承受不了。</p>
+      </section>
   </main>
-  <a class="top-link" href="#top" aria-label="返回顶部">↑</a>
+  <a class="top" href="#top" aria-label="返回顶部">↑</a>
 </body>
 </html>
